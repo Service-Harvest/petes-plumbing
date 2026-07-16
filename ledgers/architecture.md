@@ -21,6 +21,21 @@
 - **Tier 2 (Standard category/utility pages):** Septic Services, Bathroom & Kitchen Remodeling, Services Hub, About, Contact
 - **Tier 3 (Standard service pages):** all other 45 individual service pages
 
+## Design system (Phase 4a)
+- Stylesheet: `/site/assets/css/main.css` (single file, no build step, no
+  `@import` chains, system font stack — no webfont network requests).
+- Palette (derived independently — no brand colors were provided): primary
+  deep blue `#14497D` (header/buttons/links), accent rust-orange `#B3410C`
+  (secondary CTA), slate text `#1F2937`, light section stripe `#F5F7FA`.
+- Favicon: `/site/assets/img/favicon.svg` — hand-authored SVG mark (droplet
+  + wrench), used in place of a Gemini-generated PNG set. Both Gemini
+  (`GEMINI_API_KEY` unset) and local raster tools were unavailable when this
+  ran. Flagged as a placeholder for the client to replace with a real logo.
+- OG/Twitter image convention: each page's designated LCP/hero image slot
+  doubles as its Open Graph/Twitter card image, sized 1200×630. Phase 7 fills
+  this slot per page; until then, OG image tags reference a per-page path
+  under `/assets/img/` that Phase 7 will create.
+
 ## Schema types by page type
 - Homepage: `LocalBusiness` (Plumber subtype) + `WebSite` + `BreadcrumbList`
 - Category pages: `Service` + `BreadcrumbList` + `FAQPage` (FAQ content added Phase 6, schema wired Phase 9)

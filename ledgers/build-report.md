@@ -5,7 +5,7 @@
 
 ## Connection Status
 - **DataforSEO**: Initially NOT CONNECTED — `mcp__dataforseo__business_data_business_listings_search` and `mcp__dataforseo__serp_locations` both returned HTTP 401 during the original Phase 1/Phase 2 checks (traced to missing `DATAFORSEO_USERNAME`/`DATAFORSEO_PASSWORD` env vars feeding the MCP server's Basic Auth header). User fixed the config; reconnection confirmed working as of 2026-07-16 — both endpoints now return real data. Phase 1/Phase 2 findings recorded before the fix are labeled "estimated — not DataforSEO-verified" and should be re-verified with live DataforSEO data before final sign-off, since the original research ran on the web-search fallback.
-- **Gemini**: not yet used (first call happens in Phase 7).
+- **Gemini**: NOT CONNECTED. `GEMINI_API_KEY` is not set in this environment (checked during Phase 4a for favicon generation). No local SVG-to-PNG raster tool is available either (`rsvg-convert`/`imagemagick`/`inkscape` all absent), so the Phase 4a favicon uses a hand-authored SVG mark (`/site/assets/img/favicon.svg`) instead of a Gemini-generated PNG set — flagged as a placeholder, same as the pipeline's standard "no logo provided" fallback. This will affect Phase 7 much more significantly: with Gemini unavailable, every one of the ~100-200 planned photo-style images across the site would need an original SVG substitute instead, per Phase 7's failure-handling rules. Given the scale, I'll flag this again explicitly right before Phase 7 starts so the client has a chance to add `GEMINI_API_KEY` first, rather than the whole site defaulting to SVG-only imagery.
 
 ## Research Takeaways
 (Notable findings from Phase 2 and Phase 5 research, per category/page)
