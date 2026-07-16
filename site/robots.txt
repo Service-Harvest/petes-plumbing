@@ -1,0 +1,27 @@
+# Pete's Plumbing — robots.txt
+# Deliberate AI-crawler policy (Phase 4 Task 2): this is a local SEO site
+# whose visibility goal explicitly includes AI answer engines (see Phase 2's
+# AI/LLM visibility signal), so AI crawlers are allowed rather than blocked.
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: https://hexorasystems.com/sitemap.xml

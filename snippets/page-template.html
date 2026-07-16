@@ -1,0 +1,57 @@
+<!--
+  Reference page template (Phase 4 Task 1, 5, 6, 7, 9, 13).
+  Not served directly — this documents the exact <head> + structural
+  pattern every real /site/**/index.html file follows. Phase 6 copies this
+  shape (with header-nav.html / footer.html copied in verbatim) when it
+  writes each page's actual file for the first time.
+
+  Placeholders below use {{curly-brace}} notation and are replaced with
+  real per-page values — never left in a shipped file.
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{Title Tag — unique per page, ~50-60 chars}}</title>
+  <meta name="description" content="{{Meta description — unique per page, ~150-160 chars}}">
+  <link rel="canonical" href="https://hexorasystems.com{{/page-url-path}}">
+
+  <!-- Open Graph / Twitter Card -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{Same as title tag, or a slightly more social-friendly variant}}">
+  <meta property="og:description" content="{{Same as meta description, or a social-friendly variant}}">
+  <meta property="og:image" content="https://hexorasystems.com{{/assets/img/page-slug-og.webp}}">
+  <meta property="og:url" content="https://hexorasystems.com{{/page-url-path}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{Same as og:title}}">
+  <meta name="twitter:description" content="{{Same as og:description}}">
+  <meta name="twitter:image" content="https://hexorasystems.com{{/assets/img/page-slug-og.webp}}">
+
+  <!-- Favicon set (Phase 4a) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+
+  <!-- Preload + swap for webfonts (Phase 4a) -->
+  <link rel="preload" href="/assets/css/main.css" as="style">
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- JSON-LD schema (Phase 9 fills this in; every page requires at least one block) -->
+  <script type="application/ld+json">
+  {{schema JSON-LD — Phase 9}}
+  </script>
+</head>
+<body>
+  {{header-nav.html copied verbatim}}
+
+  <main>
+    <article>
+      {{Page-specific content from Phase 6 — hero, TOC, sections, FAQ section
+        wrapped in <section id="faq">, CTAs, internal/outbound links}}
+    </article>
+  </main>
+
+  {{footer.html copied verbatim}}
+</body>
+</html>

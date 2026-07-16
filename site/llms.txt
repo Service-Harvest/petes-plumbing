@@ -1,0 +1,28 @@
+# Pete's Plumbing
+
+> Locally owned and operated plumbing company serving Armonk, NY and
+> nearby Westchester County communities (Pleasantville, Mount Kisco,
+> Yonkers, Bedford, Scarsdale, Greenwich) for over 15 years. Licensed and
+> insured, same-day and emergency service available, upfront pricing.
+
+## Primary services
+- Plumbing repair and installation (water heaters, toilets, faucets, pipes,
+  fixtures, and more) — see /services for the full list
+- Drainage service (drain cleaning, sewer line repair, hydro jetting)
+- Gasfitter (gas line repair, gas water heater installation)
+- Septic services (septic tank service)
+- Bathroom & kitchen remodeling plumbing
+
+## Key pages
+- Homepage: https://hexorasystems.com/
+- All services: https://hexorasystems.com/services
+- About: https://hexorasystems.com/about
+- Contact: https://hexorasystems.com/contact
+
+## Contact
+Phone: (855) 597-5391
+Email: derek@hexorasystems.com
+Address: 1234 Main Street, Armonk, NY 10504
+
+Note: this file is expanded in Phase 11 with a complete page listing once
+all pages exist.
