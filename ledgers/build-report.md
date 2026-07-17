@@ -22,6 +22,19 @@
 
 ## Content Quality Notes
 (Notable QA findings from Phase 8, per page)
+- Homepage, Contact: clean pass, no changes.
+- Services Hub: **factual-accuracy fix** — removed an invented company-history claim ("this is where the company started") not supported by intake.
+- About: reading-level fix — split two overly long, clause-stacked sentences in the local-experience section.
+- Bathroom & Kitchen Remodeling (category): clean pass; scope-honesty disclaimer already solid.
+- Bathroom Plumbing Remodeling, Kitchen Plumbing Remodeling: added an explicit "plumbing work only, not tile/cabinetry/design" sentence to each — the category page had this but the child pages only implied it.
+- Water Heater Installation, Emergency Plumbing Repair (Tier 1): reading-level fixes — split overloaded/compound sentences given these pages' outsized traffic share.
+- Hot Water System Repair, Water Line Replacement, Water Main Repair, Fixture Replacement, Water Softener Installation, Water Filtration System Installation, Slab Leak Repair, Frozen Pipe Repair, Low Water Pressure Repair, Sink Installation: clean pass, no changes.
+- Sump Pump Installation: **claims-compliance fix** — removed an unsourced specific pump-lifespan figure ("7-10 years") not supported by intake.
+- Bathtub Installation: grammar fix ("a acrylic" → "an acrylic" in an FAQ heading).
+- Commercial Plumbing Services, Repiping, Plumbing Inspection, Appliance Hook-Up, Urinal Installation, Rainwater Tank Installation, Water Leak Sensor Installation, Plumbing Maintenance, Backflow Testing: clean pass, no changes.
+- Boiler Installation: grammar fix (duplicated word "a a seasonal...").
+- Laundry Room Plumbing: grammar fix (dangling modifier in hero subheadline).
+- **Cross-cutting observation (not fixed, flagged for awareness)**: several installation-type "process" section openers across the Plumber-batch-B pages use a similar "We start by X. From there, we Y..." construction. Each page passes individually, but noted here in case a future copy refresh wants more variety.
 
 ## Image Notes
 (Generated vs. substituted images, from Phase 7)
