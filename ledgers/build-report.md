@@ -71,6 +71,13 @@
 - **Free estimate form**: **scope decision** — the client's embed code is configured `data-trigger-type="alwaysShow"` / `data-activation-type="alwaysActivated"`, which (confirmed via live browser test) makes it auto-open as a full-page modal popup immediately on load, not a passive inline form. Placing this on all 53 category/service pages as Phase 10's generic guidance suggests would mean every single page auto-pops a modal on load — a significant, unrequested UX change our CTA design (a plain link to `/contact`) never called for. Placed it **only on the Contact page**, replacing its placeholder, where a user arriving already has stated intent to request an estimate. Added a `<noscript>` fallback (phone/email) since the form itself can't render without JS. Flagging this for the client: if sitewide auto-popup is actually wanted, that's a one-line change (copy the same embed block into the other 52 pages), but it wasn't assumed by default given the intrusiveness.
 - **Google review widget, GBP embed**: left as placeholders on the homepage, per explicit intake instruction ("leave as placeholders").
 
+## Phase 11 (Sitemap + Technical Pass)
+- Generated `sitemap.xml` with all 57 pages, `<lastmod>2026-07-17</lastmod>` (initial launch date).
+- Generated a persistent 64-char hex IndexNow key at `site/indexnow-key.txt` — reuse this exact key on any future Phase 14 edit, never regenerate it.
+- Expanded `llms.txt` with the complete 53-page listing grouped by category (was previously just the 4 core nav pages, per Phase 4's note that this would happen once all pages existed).
+- Confirmed robots.txt/CNAME/sitemap domain all consistently reference `hexorasystems.com`.
+- Re-ran `scripts/validate.js` with the sitemap now present: all sitemap-cross-check rules pass (every sitemap URL is a real page with a matching canonical, every real page is listed in the sitemap).
+
 ## Image Notes
 (Generated vs. substituted images, from Phase 7)
 - Gemini confirmed working as of 2026-07-16 (see Connection Status above). Generation batches completed so far, all succeeding on first attempt with zero SVG substitutions:
