@@ -229,3 +229,46 @@
 | `/backflow-testing-armonk-ny` | `/services` | review our full list of plumbing services | Service page body |
 | `/backflow-testing-armonk-ny` | `/plumbing-inspection-armonk-ny` | a full plumbing inspection for your property | Service page body |
 | `/backflow-testing-armonk-ny` | `/commercial-plumbing-services-armonk-ny` | commercial plumbing support for local businesses | Service page body |
+| `/hot-water-system-repair-armonk-ny` | `/water-heater-installation-armonk-ny` | installing a brand-new water heater | Service page body |
+| `/hot-water-system-repair-armonk-ny` | `/tankless-water-heater-installation-armonk-ny` | switching to a tankless system | Service page body |
+| `/hot-water-system-repair-armonk-ny` | `/services` | our full range of home plumbing services | Service page body |
+| `/water-line-replacement-armonk-ny` | `/services` | the full list of services we provide | Service page body |
+| `/water-line-replacement-armonk-ny` | `/water-main-repair-armonk-ny` | a targeted main-line repair | Service page body |
+| `/water-line-replacement-armonk-ny` | `/leak-detection-armonk-ny` | tracking down a hidden water leak first | Service page body |
+| `/water-line-replacement-armonk-ny` | `/pipe-replacement-armonk-ny` | broader pipe replacement work throughout your home | Service page body |
+| `/water-main-repair-armonk-ny` | `/water-line-replacement-armonk-ny` | replacing the entire water line | Service page body |
+| `/water-main-repair-armonk-ny` | `/services` | all of our plumbing services | Service page body |
+| `/water-main-repair-armonk-ny` | `/low-water-pressure-repair-armonk-ny` | diagnosing weak water pressure | Service page body |
+| `/water-main-repair-armonk-ny` | `/leak-detection-armonk-ny` | a dedicated leak detection visit | Service page body |
+| `/sump-pump-installation-armonk-ny` | `/services` | the full scope of services we offer | Service page body |
+| `/sump-pump-installation-armonk-ny` | `/water-leak-sensor-installation-armonk-ny` | adding a water leak sensor for extra protection | Service page body |
+| `/sump-pump-installation-armonk-ny` | `/plumbing-maintenance-armonk-ny` | a regular plumbing maintenance check | Service page body |
+| `/bathtub-installation-armonk-ny` | `/bathroom-plumbing-remodeling-armonk-ny` | a larger bathroom remodel | Service page body |
+| `/bathtub-installation-armonk-ny` | `/services` | our complete installation and repair services | Service page body |
+| `/bathtub-installation-armonk-ny` | `/shower-installation-armonk-ny` | installing a walk-in shower instead | Service page body |
+| `/bathtub-installation-armonk-ny` | `/fixture-replacement-armonk-ny` | updating other outdated fixtures | Service page body |
+| `/fixture-replacement-armonk-ny` | `/services` | the full breadth of services we provide | Service page body |
+| `/fixture-replacement-armonk-ny` | `/faucet-installation-armonk-ny` | a single faucet installation | Service page body |
+| `/fixture-replacement-armonk-ny` | `/sink-installation-armonk-ny` | a full sink installation | Service page body |
+| `/fixture-replacement-armonk-ny` | `/shower-valve-replacement-armonk-ny` | replacing a worn shower valve | Service page body |
+| `/water-softener-installation-armonk-ny` | `/water-filtration-system-installation-armonk-ny` | a separate water filtration system | Service page body |
+| `/water-softener-installation-armonk-ny` | `/services` | our entire service menu | Service page body |
+| `/water-softener-installation-armonk-ny` | `/plumbing-maintenance-armonk-ny` | routine plumbing maintenance visits | Service page body |
+| `/water-filtration-system-installation-armonk-ny` | `/services` | the complete list of what we do | Service page body |
+| `/water-filtration-system-installation-armonk-ny` | `/water-softener-installation-armonk-ny` | treating hard water at the source | Service page body |
+| `/water-filtration-system-installation-armonk-ny` | `/plumbing-maintenance-armonk-ny` | an annual plumbing check-up | Service page body |
+| `/slab-leak-repair-armonk-ny` | `/leak-detection-armonk-ny` | how we pinpoint hidden leaks | Service page body |
+| `/slab-leak-repair-armonk-ny` | `/water-line-replacement-armonk-ny` | a complete water line replacement | Service page body |
+| `/slab-leak-repair-armonk-ny` | `/pipe-repair-armonk-ny` | general pipe repair work | Service page body |
+| `/slab-leak-repair-armonk-ny` | `/services` | our full slate of plumbing solutions | Service page body |
+| `/frozen-pipe-repair-armonk-ny` | `/outdoor-faucet-repair-armonk-ny` | repairing a frozen outdoor spigot | Service page body |
+| `/frozen-pipe-repair-armonk-ny` | `/emergency-plumbing-repair-armonk-ny` | our around-the-clock emergency service | Service page body |
+| `/frozen-pipe-repair-armonk-ny` | `/pipe-repair-armonk-ny` | a standard pipe repair visit | Service page body |
+| `/low-water-pressure-repair-armonk-ny` | `/pipe-replacement-armonk-ny` | replacing corroded pipes throughout your home | Service page body |
+| `/low-water-pressure-repair-armonk-ny` | `/water-main-repair-armonk-ny` | a problem with your water main | Service page body |
+| `/low-water-pressure-repair-armonk-ny` | `/leak-detection-armonk-ny` | checking for a hidden leak first | Service page body |
+| `/low-water-pressure-repair-armonk-ny` | `/services` | our full service list | Service page body |
+| `/sink-installation-armonk-ny` | `/services` | everything else we handle | Service page body |
+| `/sink-installation-armonk-ny` | `/faucet-installation-armonk-ny` | installing a new faucet to match | Service page body |
+| `/sink-installation-armonk-ny` | `/fixture-replacement-armonk-ny` | replacing other dated fixtures | Service page body |
+| `/sink-installation-armonk-ny` | `/kitchen-plumbing-remodeling-armonk-ny` | a full kitchen plumbing remodel | Service page body |

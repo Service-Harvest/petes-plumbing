@@ -51,3 +51,15 @@
 | `/water-leak-sensor-installation-armonk-ny` | Frequent travelers/second-home owners | Early leak warning | outbound: ul.com |
 | `/plumbing-maintenance-armonk-ny` | — | Fall seasonal checkup before winter | outbound: thisoldhouse.com |
 | `/backflow-testing-armonk-ny` | Larger properties with irrigation | Required annual backflow testing | outbound: phcc.org |
+| `/hot-water-system-repair-armonk-ny` | Larger multi-bath homes | Inconsistent hot water, multiple bathrooms competing | outbound: energy.gov |
+| `/water-line-replacement-armonk-ny` | Mature-tree-lined properties | Main line root intrusion risk | outbound: iapmo.org |
+| `/water-main-repair-armonk-ny` | — | Whole-house pressure drop from the main line | outbound: epa.gov |
+| `/sump-pump-installation-armonk-ny` | Finished basements, spring rain | Flood protection | outbound: fema.gov |
+| `/bathtub-installation-armonk-ny` | — | Standalone tub swap, not a full remodel | outbound: nari.org |
+| `/fixture-replacement-armonk-ny` | Recently purchased homes | Mismatched fixtures left by previous owner | outbound: epa.gov/watersense |
+| `/water-softener-installation-armonk-ny` | Local hard water | Fixture/glassware spotting | outbound: consumerreports.org |
+| `/water-filtration-system-installation-armonk-ny` | — | Taste/contaminants (distinct from softening) | outbound: cdc.gov |
+| `/slab-leak-repair-armonk-ny` | Slab-foundation homes | Warm floor spot / water-bill spike | outbound: phcc.org |
+| `/frozen-pipe-repair-armonk-ny` | Uninsulated crawlspaces/exterior walls | Westchester cold-snap freeze risk | outbound: thisoldhouse.com |
+| `/low-water-pressure-repair-armonk-ny` | Older galvanized supply lines | Decades of internal narrowing | outbound: nachi.org |
+| `/sink-installation-armonk-ny` | — | Double-bowl to single-basin kitchen refresh | outbound: hgtv.com |
