@@ -81,6 +81,13 @@
 ## Phase 12 (Validation Gate)
 Final gate run: **0 hard failures, 86 non-blocking warnings** (all title/meta-description length guidance — every title/meta was pre-approved in the Phase 3 architecture checkpoint, so these are accepted as-is rather than rewritten purely to hit a character-count target). Clean to proceed to deploy.
 
+## Phase 13 (Deploy)
+- Created `Service-Harvest/petes-plumbing` on GitHub (public), pushed, set Pages source to GitHub Actions build.
+- Deploy workflow run succeeded: both `validate` and `deploy` jobs green. IndexNow ping returned HTTP 202 (accepted).
+- **Live URL**: https://service-harvest.github.io/petes-plumbing/ — confirmed reachable (200) and serving the real site.
+- **Domain note**: the `CNAME` file references `hexorasystems.com` per intake ("for testing purposes"). That domain is a real, unrelated business's live site (Hexora Systems, IT consulting) — DNS was never pointed at this deployment, and GitHub's Pages API confirms no custom domain is actually verified/active (`cname: null`). The site is only genuinely live at the GitHub Pages URL above. A real client launch needs an actual domain the client owns, with DNS pointed at GitHub Pages, before the custom-domain step applies.
+- Lighthouse spot-check (homepage + Drain Cleaning, a Tier-1 page): SEO 100/100 on both, Accessibility 95, Performance 87-88, Best Practices 73 (likely dragged down by the third-party GHL scripts, outside this build's control). Cumulative Layout Shift 0.24-0.27 — above Google's "good" threshold (0.1), worth a closer look in a future pass (candidate causes: image dimensions vs. rendered size, or the chat widget injecting late). on_page_instant_pages on the homepage: onpage_score 97.44, single clean H1, well-structured H2/H3 hierarchy, canonical/OG/Twitter tags all correct, 200 status, gzip-compressed, cacheable.
+
 ## Image Notes
 (Generated vs. substituted images, from Phase 7)
 - Gemini confirmed working as of 2026-07-16 (see Connection Status above). Generation batches completed so far, all succeeding on first attempt with zero SVG substitutions:
