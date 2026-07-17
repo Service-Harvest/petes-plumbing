@@ -90,10 +90,6 @@ function normalizeUrl(u) {
   return u.split("#")[0].split("?")[0].replace(/\/$/, "") || "/";
 }
 
-function escapeRegex(str) {
-  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
-
 // Strip <nav>...</nav> and <footer>...</footer> blocks so link checks that
 // are supposed to be "body copy only" don't get satisfied by a nav/footer
 // link (Phase 4 Task 9 requires literal <nav>/<footer> elements specifically
@@ -109,6 +105,12 @@ function extractAnchors(html) {
   return anchorTags.map((a) => ({
     href: a[1],
     text: a[2].replace(/<[^>]+>/g, "").trim(),
+    // Whether this is a styled CTA/action button (class="btn ...") rather than
+    // an in-body contextual link. CTA buttons intentionally repeat the same
+    // label sitewide (e.g. "Request a Free Estimate") as a UI/UX convention —
+    // they are not "anchor text" in the SEO/golden-rules sense, so they're
+    // exempt from the anchor-uniqueness check the same way nav/footer are.
+    isCtaButton: /class=["'][^"']*\bbtn\b/.test(a[0]),
   }));
 }
 
@@ -145,7 +147,11 @@ function parseMarkdownTable(text) {
     const line = rawLine.trim();
     if (!line.startsWith("|")) continue;
     if (/^\|[\s:-]+\|/.test(line)) continue; // separator row
-    const cells = line.split("|").slice(1, -1).map((c) => c.trim());
+    // Strip markdown code-span backticks (e.g. `/some-path`) in addition to
+    // whitespace — ledger paths are written as inline code for readability,
+    // and leaving the backticks in would make every downstream URL lookup
+    // silently fail to match a real page.
+    const cells = line.split("|").slice(1, -1).map((c) => c.trim().replace(/^`(.*)`$/, "$1"));
     if (cells.length >= 3) rows.push(cells);
   }
   return rows;
@@ -311,11 +317,14 @@ for (const file of files) {
 
   // --- Body-copy anchors (for orphan / required-link / duplicate-anchor checks) ---
   const bodyAnchors = extractAnchors(bodyHtml);
-  bodyAnchorsByUrl.set(url, bodyAnchors);
-  for (const { href, text } of bodyAnchors) {
+  // Keyed by normalized URL (no trailing slash) so lookups from ledger rows
+  // like "/some-page" reliably match directory-style page URLs like
+  // "/some-page/" that relUrl() produces.
+  bodyAnchorsByUrl.set(normalizeUrl(url), bodyAnchors);
+  for (const { href, text, isCtaButton } of bodyAnchors) {
     if (href.startsWith("/") || href.startsWith("./") || href.startsWith("../")) {
       bodyLinkedTo.add(normalizeUrl(href.replace(/^\.\.?/, "")));
-      if (text && text.split(" ").length > 1) {
+      if (!isCtaButton && text && text.split(" ").length > 1) {
         if (!anchorTextSeen.has(text)) anchorTextSeen.set(text, []);
         anchorTextSeen.get(text).push({ from: url, href });
       }
@@ -386,11 +395,17 @@ const anchorLedgerRows = loadAnchorLedgerRows();
 if (anchorLedgerRows === null) {
   warn(`No anchor-ledger.md found at ${ANCHOR_LEDGER} — cannot cross-check anchors or required contextual links against the permanent ledger.`);
 } else {
-  // Ledger-internal duplicate check (same as before, string-occurrence based)
-  const ledgerText = readFile(ANCHOR_LEDGER);
-  for (const anchorText of anchorTextSeen.keys()) {
-    const occurrences = (ledgerText.match(new RegExp(escapeRegex(anchorText), "g")) || []).length;
-    if (occurrences > 1) {
+  // Ledger-internal duplicate check: compare exact anchorText column values
+  // from the parsed table, not a raw substring search — a substring search
+  // false-positives whenever one legitimate anchor happens to contain another
+  // shorter legitimate anchor as a prefix/substring (e.g. "everything else we
+  // handle" vs. "everything else we handle for Armonk plumbing").
+  const anchorTextCounts = new Map();
+  for (const { anchorText } of anchorLedgerRows) {
+    anchorTextCounts.set(anchorText, (anchorTextCounts.get(anchorText) || 0) + 1);
+  }
+  for (const [anchorText, count] of anchorTextCounts.entries()) {
+    if (count > 1) {
       fail(`Anchor text "${anchorText}" appears more than once in anchor-ledger.md — ledger is out of sync or anchor was reused.`);
     }
   }

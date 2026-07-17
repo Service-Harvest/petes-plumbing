@@ -57,7 +57,9 @@ convention as above), final CTA.
 **Trade-specific (prefer these first when one fits the page's topic):**
 iaei.org (electrical), nachi.org (home inspection/general trades), nate.org
 (HVAC technician certification), ahrinet.org (HVAC/refrigeration
-standards), phcc.org (plumbing/HVAC), iapmo.org (plumbing codes), angi.com
+standards), phccweb.org (plumbing/HVAC — the National Association; phcc.org
+resolves to an unrelated Northern Virginia local chapter site, not the
+national org, so don't use it), iapmo.org (plumbing codes), angi.com
 (only for general contractor-selection guidance, not as a review/ratings
 source), nari.org (remodeling), epa.gov/watersense (water efficiency).
 

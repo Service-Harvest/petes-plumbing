@@ -21,22 +21,61 @@
   <link rel="preload" href="/assets/css/main.css" as="style">
   <link rel="stylesheet" href="/assets/css/main.css">
 
-  <!-- JSON-LD schema added in Phase 9 -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ContactPage",
+      "@id": "https://hexorasystems.com/contact#webpage",
+      "url": "https://hexorasystems.com/contact",
+      "name": "Contact Pete's Plumbing | Armonk, NY",
+      "description": "Call, request a free estimate, or reach Pete's Plumbing directly — serving Armonk, Pleasantville, Mount Kisco, Yonkers, Bedford, Scarsdale, and Greenwich.",
+      "isPartOf": {
+        "@id": "https://hexorasystems.com/#website"
+      },
+      "about": {
+        "@id": "https://hexorasystems.com/#business"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://hexorasystems.com/contact#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://hexorasystems.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Contact",
+          "item": "https://hexorasystems.com/contact"
+        }
+      ]
+    },
+    {
+      "@type": "Plumber",
+      "@id": "https://hexorasystems.com/#business"
+    }
+  ]
+}
+</script>
 </head>
 <body>
   <header class="site-header">
-    <div class="header-inner">
+    <nav class="header-inner" aria-label="Primary">
       <a href="/" class="site-logo">Pete's Plumbing</a>
-      <nav>
-        <ul class="site-nav">
-          <li><a href="/">Home</a></li>
-          <li><a href="/services">Services</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
-      </nav>
+      <ul class="site-nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
       <a href="tel:+18555975391" class="header-cta btn btn-primary">Call Now</a>
-    </div>
+    </nav>
   </header>
 
   <main>

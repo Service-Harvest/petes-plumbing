@@ -21,22 +21,87 @@
   <link rel="preload" href="/assets/css/main.css" as="style">
   <link rel="stylesheet" href="/assets/css/main.css">
 
-  <!-- JSON-LD schema added in Phase 9 -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://hexorasystems.com/services#webpage",
+      "url": "https://hexorasystems.com/services",
+      "name": "Plumbing Services in Armonk, NY | Pete's Plumbing",
+      "description": "Browse every plumbing, drainage, gas, and remodeling service Pete's Plumbing offers to homeowners across Armonk and Westchester County.",
+      "isPartOf": {
+        "@id": "https://hexorasystems.com/#website"
+      },
+      "about": {
+        "@id": "https://hexorasystems.com/#business"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://hexorasystems.com/services#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://hexorasystems.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://hexorasystems.com/services"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://hexorasystems.com/services#itemlist",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "url": "https://hexorasystems.com/drainage-service-armonk-ny"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "url": "https://hexorasystems.com/septic-services-armonk-ny"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "url": "https://hexorasystems.com/gasfitter-armonk-ny"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "url": "https://hexorasystems.com/bathroom-kitchen-remodeling-armonk-ny"
+        }
+      ]
+    },
+    {
+      "@type": "Plumber",
+      "@id": "https://hexorasystems.com/#business"
+    }
+  ]
+}
+</script>
 </head>
 <body>
   <header class="site-header">
-    <div class="header-inner">
+    <nav class="header-inner" aria-label="Primary">
       <a href="/" class="site-logo">Pete's Plumbing</a>
-      <nav>
-        <ul class="site-nav">
-          <li><a href="/">Home</a></li>
-          <li><a href="/services">Services</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
-      </nav>
+      <ul class="site-nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
       <a href="tel:+18555975391" class="header-cta btn btn-primary">Call Now</a>
-    </div>
+    </nav>
   </header>
 
   <main>
