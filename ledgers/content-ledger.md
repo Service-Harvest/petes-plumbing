@@ -27,4 +27,27 @@
 | `/hydro-jetting-armonk-ny` | Older homes, narrower original pipe diameter | Years of grease/scale buildup | — |
 | `/sewer-line-repair-armonk-ny` | Pre-1980s clay/cast-iron sewer laterals | Cracking/settling over time | — |
 | `/sewer-drain-camera-inspection-armonk-ny` | Active Westchester real estate market | Pre-purchase/pre-sale sewer condition checks | — |
-| `/grease-trap-cleaning-armonk-ny` | Small commercial kitchens (Mount Kisco, Yonkers) | Compliance with grease-trap maintenance expectations | pending resumed-agent completion |
+| `/grease-trap-cleaning-armonk-ny` | Small commercial kitchens (Mount Kisco, Yonkers) | Compliance with grease-trap maintenance expectations | outbound: epa.gov |
+| `/tankless-water-heater-installation-armonk-ny` | — | Empty-nesters/downsizers reclaiming closet space; multi-gen households wanting endless hot water | outbound: energystar.gov |
+| `/toilet-repair-armonk-ny` | 1970s-80s original toilets | Constantly-running older toilets | outbound: epa.gov/watersense |
+| `/toilet-installation-armonk-ny` | — | Standalone water-efficient toilet upgrade | outbound: iapmo.org |
+| `/leak-detection-armonk-ny` | — | Rising water bill as first clue | outbound: nachi.org |
+| `/pipe-repair-armonk-ny` | 1960s-80s copper pipe | Pinhole leaks in aging copper | outbound: phcc.org |
+| `/pipe-replacement-armonk-ny` | Polybutylene/galvanized pipe | Failure-prone older pipe materials | outbound: buildingscience.com |
+| `/burst-pipe-repair-armonk-ny` | Unheated vacant/seasonal homes | Freeze-triggered burst pipes | outbound: fema.gov |
+| `/faucet-installation-armonk-ny` | — | Small kitchen/bath refresh, a few fixtures at a time | outbound: consumerreports.org |
+| `/outdoor-faucet-repair-armonk-ny` | — | Hose bibs not winterized before first freeze | outbound: thisoldhouse.com |
+| `/garbage-disposal-repair-armonk-ny` | Busy family households | Fibrous-scrap jams | outbound: familyhandyman.com |
+| `/shower-installation-armonk-ny` | — | Bathtub-to-walk-in-shower for aging in place | outbound: nahb.org |
+| `/shower-valve-replacement-armonk-ny` | Local hard water | Sticking valves from mineral buildup | outbound: hgtv.com |
+| `/boiler-installation-armonk-ny` | Older radiator-heat homes | Aging boilers near end of service life | outbound: energy.gov |
+| `/commercial-plumbing-services-armonk-ny` | Westchester town centers | Small local businesses needing code-aware plumbing | outbound: iapmo.org |
+| `/repiping-armonk-ny` | — | Repeated pipe failures across multiple rooms | outbound: cdc.gov |
+| `/plumbing-inspection-armonk-ny` | Active Westchester real estate market | Pre-closing plumbing checks | outbound: nachi.org |
+| `/appliance-hook-up-armonk-ny` | — | New washer/dishwasher/fridge water line hookup | outbound: consumerreports.org |
+| `/urinal-installation-armonk-ny` | Small commercial/office properties | Restroom updates to code | outbound: epa.gov/watersense |
+| `/rainwater-tank-installation-armonk-ny` | Larger Westchester lots | Reducing outdoor water use for gardens | outbound: familyhandyman.com |
+| `/laundry-room-plumbing-armonk-ny` | Basement-finishing projects | Relocating a laundry room | outbound: hgtv.com |
+| `/water-leak-sensor-installation-armonk-ny` | Frequent travelers/second-home owners | Early leak warning | outbound: ul.com |
+| `/plumbing-maintenance-armonk-ny` | — | Fall seasonal checkup before winter | outbound: thisoldhouse.com |
+| `/backflow-testing-armonk-ny` | Larger properties with irrigation | Required annual backflow testing | outbound: phcc.org |
