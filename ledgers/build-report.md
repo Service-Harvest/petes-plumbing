@@ -78,6 +78,9 @@
 - Confirmed robots.txt/CNAME/sitemap domain all consistently reference `hexorasystems.com`.
 - Re-ran `scripts/validate.js` with the sitemap now present: all sitemap-cross-check rules pass (every sitemap URL is a real page with a matching canonical, every real page is listed in the sitemap).
 
+## Phase 12 (Validation Gate)
+Final gate run: **0 hard failures, 86 non-blocking warnings** (all title/meta-description length guidance — every title/meta was pre-approved in the Phase 3 architecture checkpoint, so these are accepted as-is rather than rewritten purely to hit a character-count target). Clean to proceed to deploy.
+
 ## Image Notes
 (Generated vs. substituted images, from Phase 7)
 - Gemini confirmed working as of 2026-07-16 (see Connection Status above). Generation batches completed so far, all succeeding on first attempt with zero SVG substitutions:
