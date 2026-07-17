@@ -66,6 +66,11 @@
 - **Fixed a real, sitewide structural bug found via browser inspection**: the header's site-nav `<ul>` never got its CSS applied (`.site-nav ul` selector targeted a nonexistent wrapper — the class is on the `<ul>` itself), so the nav rendered as a bulleted list on all 57 pages. Also moved the header's logo link inside the `<nav>` element (was a `<div>`) so it's correctly treated as navigation rather than a body-copy anchor repeating "Pete's Plumbing" as anchor text on every page.
 - Fixed 3 real orphan pages (no incoming body-copy links): added one natural contextual link into each of Boiler Installation, Laundry Room Plumbing, and Rainwater Tank Installation from a genuinely related page.
 
+## Phase 10 (GHL Embeds)
+- **Chat widget**: inserted sitewide (all 57 pages + 404.html), placed just before `</body>` so it doesn't block rendering of page content. Verified in-browser: renders as a floating chat bubble, no layout shift to surrounding content.
+- **Free estimate form**: **scope decision** — the client's embed code is configured `data-trigger-type="alwaysShow"` / `data-activation-type="alwaysActivated"`, which (confirmed via live browser test) makes it auto-open as a full-page modal popup immediately on load, not a passive inline form. Placing this on all 53 category/service pages as Phase 10's generic guidance suggests would mean every single page auto-pops a modal on load — a significant, unrequested UX change our CTA design (a plain link to `/contact`) never called for. Placed it **only on the Contact page**, replacing its placeholder, where a user arriving already has stated intent to request an estimate. Added a `<noscript>` fallback (phone/email) since the form itself can't render without JS. Flagging this for the client: if sitewide auto-popup is actually wanted, that's a one-line change (copy the same embed block into the other 52 pages), but it wasn't assumed by default given the intrusiveness.
+- **Google review widget, GBP embed**: left as placeholders on the homepage, per explicit intake instruction ("leave as placeholders").
+
 ## Image Notes
 (Generated vs. substituted images, from Phase 7)
 - Gemini confirmed working as of 2026-07-16 (see Connection Status above). Generation batches completed so far, all succeeding on first attempt with zero SVG substitutions:
