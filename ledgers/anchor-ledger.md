@@ -100,3 +100,37 @@
 | `/water-leak-sensor-installation-armonk-ny` | `/` | our leak prevention and plumbing services | Service page body, link to parent |
 | `/plumbing-maintenance-armonk-ny` | `/` | our preventive plumbing service offerings | Service page body, link to parent |
 | `/backflow-testing-armonk-ny` | `/` | our compliance and inspection plumbing services | Service page body, link to parent |
+| `/about` | `/services` | a closer look at everything we offer | About page body |
+| `/about` | `/contact` | reach out to schedule a visit | About page body |
+| `/gasfitter-armonk-ny` | `/services` | the complete set of services we offer across Armonk | Category page body |
+| `/gasfitter-armonk-ny` | `/emergency-plumbing-repair-armonk-ny` | urgent gas leak response service | Category page body |
+| `/gas-line-repair-armonk-ny` | `/services` | the rest of what we handle in Armonk | Service page body |
+| `/gas-line-repair-armonk-ny` | `/gas-water-heater-installation-armonk-ny` | swapping in a new gas water heater | Service page body |
+| `/gas-water-heater-installation-armonk-ny` | `/services` | browse our complete list of services | Service page body |
+| `/gas-water-heater-installation-armonk-ny` | `/water-heater-installation-armonk-ny` | switching to an electric water heater instead | Service page body |
+| `/septic-services-armonk-ny` | `/drainage-service-armonk-ny` | keeping drains flowing in septic-connected homes | Category page body |
+| `/septic-services-armonk-ny` | `/services` | our wider list of plumbing services | Category page body |
+| `/septic-tank-service-armonk-ny` | `/drain-cleaning-armonk-ny` | getting a sluggish drain moving again | Service page body |
+| `/septic-tank-service-armonk-ny` | `/services` | the full scope of plumbing work we handle | Service page body |
+| `/bathroom-kitchen-remodeling-armonk-ny` | `/` | everything we handle for Armonk homeowners | Category page body |
+| `/bathroom-kitchen-remodeling-armonk-ny` | `/services` | our full list of plumbing services | Category page body |
+| `/bathroom-kitchen-remodeling-armonk-ny` | `/water-heater-installation-armonk-ny` | upgrading your water heater as part of the project | Category page body |
+| `/bathroom-kitchen-remodeling-armonk-ny` | `/sink-installation-armonk-ny` | installing a new sink during your remodel | Category page body |
+| `/bathroom-kitchen-remodeling-armonk-ny` | `/appliance-hook-up-armonk-ny` | connecting new appliances like a dishwasher | Category page body |
+| `/bathroom-plumbing-remodeling-armonk-ny` | `/services` | browse our other plumbing services | Service page body |
+| `/bathroom-plumbing-remodeling-armonk-ny` | `/toilet-installation-armonk-ny` | installing a new toilet in the redesigned space | Service page body |
+| `/bathroom-plumbing-remodeling-armonk-ny` | `/shower-installation-armonk-ny` | adding a new shower | Service page body |
+| `/bathroom-plumbing-remodeling-armonk-ny` | `/fixture-replacement-armonk-ny` | replacing outdated bathroom fixtures | Service page body |
+| `/kitchen-plumbing-remodeling-armonk-ny` | `/services` | see the rest of our plumbing services | Service page body |
+| `/kitchen-plumbing-remodeling-armonk-ny` | `/appliance-hook-up-armonk-ny` | hooking up your new dishwasher | Service page body |
+| `/kitchen-plumbing-remodeling-armonk-ny` | `/sink-installation-armonk-ny` | installing a new kitchen sink | Service page body |
+| `/kitchen-plumbing-remodeling-armonk-ny` | `/repiping-armonk-ny` | repiping to support the new layout | Service page body |
+| `/water-heater-installation-armonk-ny` | `/services` | our complete list of plumbing services | Service page body |
+| `/water-heater-installation-armonk-ny` | `/tankless-water-heater-installation-armonk-ny` | the tankless water heater option | Service page body |
+| `/water-heater-installation-armonk-ny` | `/gas-water-heater-installation-armonk-ny` | our gas water heater installation service | Service page body |
+| `/water-heater-installation-armonk-ny` | `/hot-water-system-repair-armonk-ny` | repairing rather than replacing your water heater | Service page body |
+| `/emergency-plumbing-repair-armonk-ny` | `/services` | our full menu of plumbing services | Service page body |
+| `/emergency-plumbing-repair-armonk-ny` | `/burst-pipe-repair-armonk-ny` | how we handle a burst pipe | Service page body |
+| `/emergency-plumbing-repair-armonk-ny` | `/frozen-pipe-repair-armonk-ny` | frozen pipe repair during a cold snap | Service page body |
+| `/emergency-plumbing-repair-armonk-ny` | `/leak-detection-armonk-ny` | tracking down a hidden leak before it worsens | Service page body |
+| `/emergency-plumbing-repair-armonk-ny` | `/water-main-repair-armonk-ny` | repairing a damaged water main | Service page body |
