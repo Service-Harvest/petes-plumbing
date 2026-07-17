@@ -169,7 +169,7 @@
           <p class="hero-subheadline">Backups, slow drains throughout the house, or a soggy patch in the yard can all point to a damaged sewer line. We diagnose it clearly, on camera, before recommending any repair.</p>
           <div class="hero-ctas">
             <a href="tel:+18555975391" class="btn btn-primary">Call Pete's Plumbing Today</a>
-            <a href="/contact" class="btn btn-secondary">Request a Free Estimate</a>
+            <a href="/contact" class="btn btn-secondary request-estimate-cta">Request a Free Estimate</a>
           </div>
           <ul class="trust-badges">
             <li>Licensed &amp; Insured</li>
@@ -226,7 +226,7 @@
             <strong>Not sure if it's the sewer line?</strong>
             <p>We'll confirm it before recommending anything.</p>
           </div>
-          <a href="/contact" class="btn btn-primary">Request a Free Estimate</a>
+          <a href="/contact" class="btn btn-primary request-estimate-cta">Request a Free Estimate</a>
         </div>
       </div>
 
@@ -342,5 +342,26 @@
   </footer>
   <!-- GHL chat widget (Phase 10) -->
   <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69d95aea9a7ac3d3245191cd"></script>
+  <!-- GHL free estimate popup (Phase 10) — click-triggered by any .request-estimate-cta -->
+  <iframe
+      src="https://go.serviceharvest.com/widget/form/xHJhkUk8Wps0ag0Dokml"
+      style="display:none;width:100%;height:100%;border:none;border-radius:8px"
+      id="popup-xHJhkUk8Wps0ag0Dokml"
+      data-layout="{'id':'POPUP'}"
+      data-trigger-type="click"
+      data-trigger-value=".request-estimate-cta"
+      data-activation-type="alwaysActivated"
+      data-activation-value=""
+      data-deactivation-type="neverDeactivate"
+      data-deactivation-value=""
+      data-form-name="Free Estimate Form"
+      data-height="1050"
+      data-layout-iframe-id="popup-xHJhkUk8Wps0ag0Dokml"
+      data-form-id="xHJhkUk8Wps0ag0Dokml"
+      title="Free Estimate Form"
+      data-modal-height="500"
+          >
+  </iframe>
+  <script src="https://go.serviceharvest.com/js/form_embed.js"></script>
 </body>
 </html>

@@ -87,7 +87,7 @@
           <p class="hero-subheadline">Have a plumbing problem in Armonk or a nearby town? Call us directly or request a free estimate below, and we'll help you figure out the next step.</p>
           <div class="hero-ctas">
             <a href="tel:+18555975391" class="btn btn-primary">Call Pete's Plumbing Today</a>
-            <a href="#free-estimate" class="btn btn-secondary">Request a Free Estimate</a>
+            <a href="#free-estimate" class="btn btn-secondary request-estimate-cta">Request a Free Estimate</a>
           </div>
           <ul class="trust-badges">
             <li>Same-Day Service Available</li>
@@ -141,29 +141,7 @@
         <div class="container">
           <h2>Request a free estimate</h2>
           <p>Tell us what's going on and we'll follow up to schedule a visit or talk through your options. There's no cost and no pressure to move forward.</p>
-          <iframe
-              src="https://go.serviceharvest.com/widget/form/xHJhkUk8Wps0ag0Dokml"
-              style="display:none;width:100%;height:100%;border:none;border-radius:8px"
-              id="popup-xHJhkUk8Wps0ag0Dokml"
-              data-layout="{'id':'POPUP'}"
-              data-trigger-type="alwaysShow"
-              data-trigger-value=""
-              data-activation-type="alwaysActivated"
-              data-activation-value=""
-              data-deactivation-type="neverDeactivate"
-              data-deactivation-value=""
-              data-form-name="Free Estimate Form"
-              data-height="1050"
-              data-layout-iframe-id="popup-xHJhkUk8Wps0ag0Dokml"
-              data-form-id="xHJhkUk8Wps0ag0Dokml"
-              title="Free Estimate Form"
-              data-modal-height="500"
-                  >
-          </iframe>
-          <script src="https://go.serviceharvest.com/js/form_embed.js"></script>
-          <noscript>
-            <p>Our estimate form needs JavaScript to load. In the meantime, call us at <a href="tel:+18555975391">(855) 597-5391</a> or email <a href="mailto:derek@hexorasystems.com">derek@hexorasystems.com</a>.</p>
-          </noscript>
+          <a href="tel:+18555975391" class="btn btn-secondary request-estimate-cta">Request a Free Estimate</a>
         </div>
       </section>
 
@@ -224,5 +202,26 @@
   </footer>
   <!-- GHL chat widget (Phase 10) -->
   <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69d95aea9a7ac3d3245191cd"></script>
+  <!-- GHL free estimate popup (Phase 10) — click-triggered by any .request-estimate-cta -->
+  <iframe
+      src="https://go.serviceharvest.com/widget/form/xHJhkUk8Wps0ag0Dokml"
+      style="display:none;width:100%;height:100%;border:none;border-radius:8px"
+      id="popup-xHJhkUk8Wps0ag0Dokml"
+      data-layout="{'id':'POPUP'}"
+      data-trigger-type="click"
+      data-trigger-value=".request-estimate-cta"
+      data-activation-type="alwaysActivated"
+      data-activation-value=""
+      data-deactivation-type="neverDeactivate"
+      data-deactivation-value=""
+      data-form-name="Free Estimate Form"
+      data-height="1050"
+      data-layout-iframe-id="popup-xHJhkUk8Wps0ag0Dokml"
+      data-form-id="xHJhkUk8Wps0ag0Dokml"
+      title="Free Estimate Form"
+      data-modal-height="500"
+          >
+  </iframe>
+  <script src="https://go.serviceharvest.com/js/form_embed.js"></script>
 </body>
 </html>

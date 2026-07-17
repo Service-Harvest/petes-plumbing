@@ -7,11 +7,20 @@ specific features — only the embed snippets live in the static site; nothing
 else about GHL integrates here.
 
 ## From intake, insert:
-- Chat widget embed code (typically homepage + relevant service pages, or
-  sitewide if the snippet is designed for that — confirm placement makes
-  sense for a static, non-GHL-rendered page)
-- Free estimate / lead form embed code (homepage + every category/service
-  page, wherever a CTA currently points to a form)
+- Chat widget embed code — sitewide (every page), placed once near the end
+  of `<body>` so it doesn't block rendering of surrounding content.
+- Free estimate / lead form embed code — the popup widget itself is
+  included once per page, sitewide (same footprint as the chat widget), but
+  configured as a **click-triggered** popup (`data-trigger-type="click"`,
+  `data-trigger-value` set to a shared CSS selector, e.g.
+  `.request-estimate-cta`) rather than an always-show popup. Every existing
+  "Request a Free Estimate" (or equivalent free-estimate/lead-form) CTA
+  button or link across the site — top-of-page hero CTA, mid-page CTA
+  banners, and final CTA banners, on every page — gets that shared trigger
+  class added, so clicking any of them opens the same popup in place. Keep
+  each CTA's existing `href` (e.g. `/contact` or `#free-estimate`) as a
+  graceful-degradation fallback destination in case the popup script fails
+  to load — don't replace working links with a bare `#`.
 - Google review widget embed code (homepage, and optionally category pages)
 - Google Business Profile embed code (homepage, in the placeholder already
   present in the Phase 6 draft)
