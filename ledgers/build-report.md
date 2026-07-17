@@ -35,6 +35,14 @@
 - Boiler Installation: grammar fix (duplicated word "a a seasonal...").
 - Laundry Room Plumbing: grammar fix (dangling modifier in hero subheadline).
 - **Cross-cutting observation (not fixed, flagged for awareness)**: several installation-type "process" section openers across the Plumber-batch-B pages use a similar "We start by X. From there, we Y..." construction. Each page passes individually, but noted here in case a future copy refresh wants more variety.
+- Drainage Service (category): reading-level fix — simplified a dense sentence about plumbing codes.
+- Drain Cleaning, Clogged Drain Repair, Drain Snaking/Rooter Service, Hydro Jetting, Grease Trap Cleaning: clean pass, no changes.
+- Sewer Line Repair: reading-level fix — simplified a long InterNACHI-sourced sentence.
+- Sewer & Drain Camera Inspection: **fixed a missing required internal link** — the anchor ledger specified a body-copy link to `/drainage-service-armonk-ny` ("additional drain and sewer services") that was only present in breadcrumb/footer, not actual body copy. Added it.
+- Gasfitter (category): fixed a broken outbound-citation sentence (treated "codes" as an organization name; now correctly names IAPMO). Confirmed no scope drift — still leads with "gas line repair"/"gas water heater" language over "Gasfitter."
+- Gas Line Repair, Gas Water Heater Installation: clean pass, no changes.
+- Septic Services (category): fixed a mangled internal-anchor sentence and a duplicated "EPA's EPA" outbound citation. Confirmed no literal duplication of local framing vs. child page.
+- Septic Tank Service: fixed a near-verbatim duplicate FAQ answer shared with the category page (same disclosure, reworded for variation). Scope-honesty (plumbing-side-only, not a pumping company) confirmed intact on both septic pages.
 
 ## Image Notes
 (Generated vs. substituted images, from Phase 7)
