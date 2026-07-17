@@ -30,12 +30,17 @@
 
   <!-- Favicon (Phase 4a) — SVG mark used in place of a PNG set; see
        build-report.md Connection Status for why (no logo provided, Gemini
-       and local raster tools both unavailable) -->
-  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+       and local raster tools both unavailable).
+       PATH CONVENTION: {{ROOT}} = "./" on depth-0 pages (homepage,
+       404.html), "../" on every depth-1 page — see header-nav.html's
+       comment. Never root-absolute ("/assets/..."), so the site renders
+       correctly both at a real custom domain's root and at a GitHub Pages
+       project-subpath fallback URL before DNS is connected. -->
+  <link rel="icon" type="image/svg+xml" href="{{ROOT}}assets/img/favicon.svg">
 
   <!-- Preload + swap for webfonts (Phase 4a) -->
-  <link rel="preload" href="/assets/css/main.css" as="style">
-  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="preload" href="{{ROOT}}assets/css/main.css" as="style">
+  <link rel="stylesheet" href="{{ROOT}}assets/css/main.css">
 
   <!-- JSON-LD schema (Phase 9 fills this in; every page requires at least one block) -->
   <script type="application/ld+json">
@@ -48,7 +53,10 @@
   <main>
     <article>
       {{Page-specific content from Phase 6 — hero, TOC, sections, FAQ section
-        wrapped in <section id="faq">, CTAs, internal/outbound links}}
+        wrapped in <section id="faq">, CTAs, internal/outbound links.
+        Every internal href/src (nav-style links, breadcrumbs, in-body
+        contextual links, Phase 7 image src) uses the same {{ROOT}}
+        convention as above — never root-absolute paths.}}
     </article>
   </main>
 

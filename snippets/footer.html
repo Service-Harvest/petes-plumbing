@@ -2,6 +2,11 @@
   Canonical shared footer markup (Phase 4 Task 1).
   Copied verbatim into every real page file in Phase 6.
   Footer links are plain/functional navigation, not governed by anchor-ledger.md.
+
+  PATH CONVENTION: same {{ROOT}} rule as snippets/header-nav.html — "./" on
+  depth-0 pages (homepage, 404.html), "../" on every depth-1 page. Never use
+  root-absolute paths ("/services") here; see header-nav.html's comment for
+  why.
 -->
 <footer class="site-footer">
   <div class="footer-inner">
@@ -14,19 +19,19 @@
     <div class="footer-col">
       <p class="footer-col-title">Navigate</p>
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/services">Services</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="{{ROOT}}">Home</a></li>
+        <li><a href="{{ROOT}}services/">Services</a></li>
+        <li><a href="{{ROOT}}about/">About</a></li>
+        <li><a href="{{ROOT}}contact/">Contact</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <p class="footer-col-title">Our Services</p>
       <ul>
-        <li><a href="/drainage-service-armonk-ny">Drainage Service</a></li>
-        <li><a href="/gasfitter-armonk-ny">Gasfitter</a></li>
-        <li><a href="/septic-services-armonk-ny">Septic Services</a></li>
-        <li><a href="/bathroom-kitchen-remodeling-armonk-ny">Bathroom & Kitchen Remodeling</a></li>
+        <li><a href="{{ROOT}}drainage-service-armonk-ny/">Drainage Service</a></li>
+        <li><a href="{{ROOT}}gasfitter-armonk-ny/">Gasfitter</a></li>
+        <li><a href="{{ROOT}}septic-services-armonk-ny/">Septic Services</a></li>
+        <li><a href="{{ROOT}}bathroom-kitchen-remodeling-armonk-ny/">Bathroom & Kitchen Remodeling</a></li>
       </ul>
     </div>
     <div class="footer-col">

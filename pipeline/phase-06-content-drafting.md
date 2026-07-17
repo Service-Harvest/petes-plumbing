@@ -118,8 +118,9 @@ combine into a single file:
 1. This page's drafted content (headings, body copy, FAQs, CTAs), placed
    into the Phase 4 page template's structure.
 2. The shared header/nav/footer markup, copied verbatim from `/snippets/`.
-3. A `<link rel="stylesheet" href="/assets/css/main.css">` reference to
-   Phase 4a's stylesheet.
+3. A `<link rel="stylesheet" href="{{ROOT}}assets/css/main.css">` reference
+   to Phase 4a's stylesheet — relative, not root-absolute; see Phase 4
+   Task 2 for why.
 4. A placeholder for each image slot this page needs — a `data-slot`
    marker noting what the slot should depict (e.g.
    `<img data-slot="hero: technician repairing a tankless water heater">`),

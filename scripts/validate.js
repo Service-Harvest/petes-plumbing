@@ -90,6 +90,29 @@ function normalizeUrl(u) {
   return u.split("#")[0].split("?")[0].replace(/\/$/, "") || "/";
 }
 
+// Resolves an href/src found on a given page to a normalized, site-relative
+// absolute path (e.g. "/services"), regardless of whether that href was
+// written root-absolute ("/services"), dot-relative ("./x", "../x"), or bare
+// relative ("services/") — the site's convention (see phase-04 Task 2) uses
+// relative paths so the build works both under a real custom domain's root
+// and under a GitHub Pages project-subpath fallback URL, so this validator
+// has to resolve them the same way a browser would rather than assume any
+// one style. Returns null for non-path hrefs (external, tel:, mailto:, bare
+// same-page anchors).
+function resolveHref(pageUrl, href) {
+  if (/^https?:\/\//i.test(href) || /^(tel|mailto):/i.test(href) || href.startsWith("#")) {
+    return null;
+  }
+  if (href.startsWith("/")) return normalizeUrl(href);
+  const baseDir = pageUrl === "/" ? "/" : pageUrl.replace(/\/$/, "") + "/";
+  try {
+    const resolved = new URL(href, "http://site.invalid" + baseDir);
+    return normalizeUrl(resolved.pathname);
+  } catch (e) {
+    return null;
+  }
+}
+
 // Strip <nav>...</nav> and <footer>...</footer> blocks so link checks that
 // are supposed to be "body copy only" don't get satisfied by a nav/footer
 // link (Phase 4 Task 9 requires literal <nav>/<footer> elements specifically
@@ -322,8 +345,9 @@ for (const file of files) {
   // "/some-page/" that relUrl() produces.
   bodyAnchorsByUrl.set(normalizeUrl(url), bodyAnchors);
   for (const { href, text, isCtaButton } of bodyAnchors) {
-    if (href.startsWith("/") || href.startsWith("./") || href.startsWith("../")) {
-      bodyLinkedTo.add(normalizeUrl(href.replace(/^\.\.?/, "")));
+    const resolved = resolveHref(url, href);
+    if (resolved) {
+      bodyLinkedTo.add(resolved);
       if (!isCtaButton && text && text.split(" ").length > 1) {
         if (!anchorTextSeen.has(text)) anchorTextSeen.set(text, []);
         anchorTextSeen.get(text).push({ from: url, href });
@@ -335,7 +359,7 @@ for (const file of files) {
   const allAnchors = extractAnchors(html);
   const outbound = [];
   for (const { href, text } of allAnchors) {
-    if (href.startsWith("/") || href.startsWith("./") || href.startsWith("../")) {
+    if (resolveHref(url, href) !== null) {
       allInternalHrefs.push({ from: url, href });
     } else if (/^https?:\/\//i.test(href)) {
       outbound.push({ href, text });
@@ -375,7 +399,7 @@ for (const url of allUrls) {
 // ---------------------------------------------------------------------
 const urlSet = new Set(allUrls.map(normalizeUrl));
 for (const { from, href } of allInternalHrefs) {
-  const cleanHref = normalizeUrl(href);
+  const cleanHref = resolveHref(from, href);
   if (cleanHref && !urlSet.has(cleanHref)) {
     fail(`Broken internal link on ${from}: href="${href}"`);
   }
@@ -419,7 +443,7 @@ if (anchorLedgerRows === null) {
       continue;
     }
     const found = sourceAnchors.some(
-      (a) => normalizeUrl(a.href) === normalizeUrl(destination) && a.text.trim() === anchorText.trim()
+      (a) => resolveHref(source, a.href) === normalizeUrl(destination) && a.text.trim() === anchorText.trim()
     );
     if (!found) {
       fail(

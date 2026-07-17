@@ -6,15 +6,26 @@
   Everything here (logo, links, header CTA) lives inside one <nav> element
   so scripts/validate.js's nav/footer stripping correctly treats all of it
   as navigation, not in-body contextual content.
+
+  PATH CONVENTION: every internal href/src is relative, not root-absolute
+  ("/services", "/assets/..."), so the site renders correctly both at a
+  real custom domain's root AND at a GitHub Pages project-subpath fallback
+  URL (https://org.github.io/repo-name/) before DNS is connected — a
+  root-absolute path silently 404s under that fallback subpath. Replace
+  {{ROOT}} below with "./" on depth-0 pages (the homepage, 404.html) and
+  "../" on every depth-1 page (every category/service/hub/about/contact
+  page — all of them live one directory below site root, e.g.
+  /some-slug/index.html). Asset paths (assets/css/..., assets/img/...)
+  never get a leading "./" — just the depth-1 "../" when needed.
 -->
 <header class="site-header">
   <nav class="header-inner" aria-label="Primary">
-    <a href="/" class="site-logo">Pete's Plumbing</a>
+    <a href="{{ROOT}}" class="site-logo">Pete's Plumbing</a>
     <ul class="site-nav">
-      <li><a href="/">Home</a></li>
-      <li><a href="/services">Services</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/contact">Contact</a></li>
+      <li><a href="{{ROOT}}">Home</a></li>
+      <li><a href="{{ROOT}}services/">Services</a></li>
+      <li><a href="{{ROOT}}about/">About</a></li>
+      <li><a href="{{ROOT}}contact/">Contact</a></li>
     </ul>
     <a href="tel:+18555975391" class="header-cta btn btn-primary">Call Now</a>
   </nav>
