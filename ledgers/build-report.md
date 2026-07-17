@@ -43,6 +43,16 @@
 - Gas Line Repair, Gas Water Heater Installation: clean pass, no changes.
 - Septic Services (category): fixed a mangled internal-anchor sentence and a duplicated "EPA's EPA" outbound citation. Confirmed no literal duplication of local framing vs. child page.
 - Septic Tank Service: fixed a near-verbatim duplicate FAQ answer shared with the category page (same disclosure, reworded for variation). Scope-honesty (plumbing-side-only, not a pumping company) confirmed intact on both septic pages.
+- Plumber batch A (Tankless Water Heater Installation through Shower Valve Replacement): QA surfaced a systemic Phase 6 drafting issue — 5 of 12 pages had a fabricated or wrong-domain outbound citation URL (confirmed via live HTTP check, not just domain-name plausibility). Fixed: `leak-detection` (fake NACHI deep link), `pipe-repair` (wrong PHCC domain — archived local chapter vs. real phccweb.org), `burst-pipe-repair` (fabricated date-coded FEMA press-release URL), `outdoor-faucet-repair` (fake This Old House deep link), `shower-installation` (fake NAHB deep link). `garbage-disposal-repair` and `shower-valve-replacement` outbound links were unverifiable (403/bot-blocked even at domain root) and precautionarily downgraded to safe root-domain links.
+- **Sitewide outbound-citation sweep** (triggered by the above finding — checked every one of the 39 unique outbound URLs across all 57 pages via live HTTP request, not just domain plausibility): found 7 MORE confirmed-fabricated/broken deep links beyond what the batch-A QA agent already caught, all fixed by replacing with verified-working root-domain URLs:
+  - `water-softener-installation`: fake Consumer Reports water-softeners path → consumerreports.org/appliances/
+  - `boiler-installation`: fake energy.gov furnaces-and-boilers path → energy.gov root
+  - `hot-water-system-repair`: fake energy.gov water-heating path → energy.gov root
+  - `grease-trap-cleaning`: fake EPA food-service-facilities path → epa.gov root
+  - `urinal-installation`: fake EPA WaterSense toilets/urinals path → epa.gov/watersense (real page)
+  - `plumbing-maintenance`: fake This Old House checklist path → thisoldhouse.com/plumbing (real page)
+  - `water-leak-sensor-installation`: fake UL "ul-mark" resource path → ul.com root
+  - After these fixes, re-verified all 39 outbound URLs: zero 404s remain. Remaining non-200 responses (angi.com, cdc.gov, familyhandyman.com, fema.gov, hgtv.com) are confirmed bot-blocking (403 even at bare domain root, not path-specific), not fabricated links — left as-is since they're legitimate approved domains.
 
 ## Image Notes
 (Generated vs. substituted images, from Phase 7)
