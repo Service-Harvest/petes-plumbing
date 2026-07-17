@@ -134,6 +134,32 @@ p { margin: 0 0 var(--space-2); }
 .hero h1 { margin-bottom: var(--space-1); }
 .hero-subheadline { font-size: var(--fs-lg); color: var(--color-text-muted); max-width: 640px; }
 .hero-ctas { display: flex; gap: var(--space-2); flex-wrap: wrap; margin: var(--space-3) 0; }
+.hero-image {
+  margin-top: var(--space-3);
+  max-width: 720px;
+}
+.hero-image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  object-fit: cover;
+  aspect-ratio: 1200 / 630;
+}
+.content-image {
+  margin: var(--space-3) 0;
+  max-width: 640px;
+}
+.content-image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  object-fit: cover;
+}
+.content-image figcaption {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--space-1);
+}
 .trust-badges {
   display: flex;
   flex-wrap: wrap;
