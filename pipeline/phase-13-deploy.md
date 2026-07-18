@@ -43,9 +43,61 @@
    Report notable scores/issues in the final report below — this is a
    spot-check, not a blocking gate; don't hold up deploy on it, but do flag
    anything that looks clearly wrong (e.g. a failing performance score).
-8. Note the DNS records the domain registrar needs (this step happens
-   outside the repo — report it clearly rather than attempting it, since it
-   requires the domain registrar account, not GitHub).
+8. **Custom domain connection with canonicalization — a required step, not
+   an optional add-on, whenever intake's "Domain" field is a real domain
+   and "Domain registrar access confirmed" is Yes.** Skip only if intake
+   has no real domain yet (test/placeholder domain) or registrar access
+   isn't confirmed — note that explicitly in the final report as a
+   follow-up item, don't silently drop it. Otherwise, walk through all of
+   the following before considering Phase 13 done:
+   a. **Ask the client which form should be canonical**: the apex domain
+      (`example.com`) or `www` (`www.example.com`). Default recommendation
+      is apex unless they have a specific reason to prefer `www` (e.g. an
+      existing CDN/email setup that expects it) — apex is simpler for the
+      client to hand out verbally and in ads ("visit example.com," not
+      "visit www dot example dot com"). Record their choice; the rest of
+      this step assumes apex as canonical and `www` as the redirecting
+      form — swap the roles if the client picks `www` instead.
+   b. **Give the client both sets of DNS records they need to add at their
+      registrar** (this always happens outside the repo — report it
+      clearly, never attempt it yourself, it requires their registrar
+      account):
+      - Apex: four `A` records (host `@` or blank, per their registrar)
+        pointing to GitHub Pages' IPs: `185.199.108.153`, `185.199.109.153`,
+        `185.199.110.153`, `185.199.111.153`. (`AAAA` records for IPv6 are
+        optional, not required.)
+      - `www`: one `CNAME` record (host `www`) pointing to
+        `[org].github.io` (the GitHub Pages default domain for this repo,
+        e.g. `service-harvest.github.io`).
+      Both record sets are required regardless of which form is canonical
+      — the redirect only works if the non-canonical form also has a real
+      DNS record pointing at GitHub Pages.
+   c. Once the client confirms DNS is added (allow real propagation time —
+      anywhere from minutes to hours depending on registrar/TTL, don't
+      assume it's instant), set the custom domain via the GitHub Pages API
+      using the **canonical** form only:
+      `gh api repos/Service-Harvest/[repo-name]/pages -X PUT -f cname=[canonical-domain]`
+      Confirm the response shows the domain accepted, then check
+      `gh api repos/Service-Harvest/[repo-name]/pages` for
+      `protected_domain_state`/verification status and that HTTPS
+      provisioning completes (`https_enforced: true` once the cert is
+      issued — this can take a few minutes after verification passes).
+   d. **Do not assume the non-canonical form redirects automatically —
+      verify it live.** Fetch the non-canonical URL directly (e.g. `curl -I
+      https://www.[domain]`) and confirm it returns a real `30x` redirect
+      to the canonical domain, not just that both URLs happen to load
+      independently (which is a real, different failure mode — GitHub
+      Pages requires the custom domain to be actively set to the canonical
+      form, via step c, for this redirect to exist at all; without that
+      step, the non-canonical form's DNS record resolves but doesn't
+      redirect anywhere).
+   e. **Confirm canonical tags, `sitemap.xml`, and OG/Twitter meta tags all
+      consistently reference the canonical domain form** — they should
+      already, since they're built from intake's domain value during
+      earlier phases and don't depend on which URL is currently serving
+      the site, but re-check post-connection specifically, since this is
+      the point a mismatch would actually matter (before DNS is connected,
+      a mismatch is invisible; after, it's live).
 
 ## Final report to the user
 Read the full `/ledgers/build-report.md` and present it to the user in the
@@ -55,6 +107,9 @@ Report, plainly:
 - Total pages built and deployed
 - Live GitHub Pages URL (and custom domain URL once DNS is connected)
 - Any DNS steps still required on the user's end, spelled out clearly
+- If a real domain was connected this deploy: which form is canonical,
+  confirmation the non-canonical form's redirect was actually verified
+  (not just assumed), and confirmation canonical/sitemap/OG tags match
 - Confirmation that the validation gate passed with zero failures
 - Any warnings (non-blocking) surfaced during validation, for the user's
   awareness
