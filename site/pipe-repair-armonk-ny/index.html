@@ -381,7 +381,15 @@
       if (e.target.closest(".request-estimate-cta")) {
         e.preventDefault();
         allowShow = true;
-        popupEls().forEach(function (el) { el.style.removeProperty("display"); });
+        popupEls().forEach(function (el) {
+          // The widget's own CSS gives .ep-overlay a default of
+          // display:none (used to keep it hidden until genuinely opened),
+          // so simply removing our override falls back to that same
+          // hidden state rather than actually showing it. Set the display
+          // values it actually needs explicitly instead.
+          var isOverlay = el.id.indexOf("-overlay") !== -1;
+          el.style.setProperty("display", isOverlay ? "flex" : "block", "important");
+        });
       }
     });
   })();
