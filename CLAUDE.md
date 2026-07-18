@@ -67,6 +67,24 @@ checkpoint explicitly marked below.
 - **Ledgers are real files, updated as you go, never held only in working memory.**
   Every later phase (including everything in Phase 14, used months after launch)
   depends on these files being current and complete.
+- **A template-level fix discovered mid-build isn't done until it's ported back
+  to `pipeline-template/`.** This client folder is a one-time duplicate of
+  `pipeline-template/` — the two are separate, non-synced locations on disk;
+  editing one never updates the other. If, while working in this client's
+  folder, you discover a genuine bug or gap in a phase file, `scripts/
+  validate.js`, `scripts/generate-image.js`, `CLAUDE.md` itself, or any other
+  file that's supposed to be reusable across every client (as opposed to this
+  client's actual business content — their copy, their images, their ledgers,
+  which correctly stay client-specific), the fix is not complete once it
+  works here. Locate this client's sibling `pipeline-template/` folder (same
+  parent directory) and apply the equivalent fix there too, then confirm the
+  two copies actually match — diff the specific file(s), or grep
+  `pipeline-template/` for language from the fix — the same verification
+  approach used to catch and correct this exact failure mode once already
+  (an entire session's worth of fixes had accumulated only in a client copy
+  before anyone checked). "I fixed it" and "I fixed it and confirmed
+  `pipeline-template/` matches" are different claims — only make the second
+  one.
 
 ## Execution model
 
