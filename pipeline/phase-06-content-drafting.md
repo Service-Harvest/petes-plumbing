@@ -66,26 +66,40 @@ cards, local-service section, process section, trust/credentials section,
 GBP embed placeholder, 6–8 FAQs (same `<section id="faq">` wrapper
 convention as above), final CTA.
 
-**Homepage-linked service/category cards, specifically**: these are the
-site's premium real estate — the homepage-linked picks from Phase 3's
-priority tiers — and each one needs to read like a genuine preview of its
-destination page, not a link with a caption. For each card:
-- **A real paragraph** (2–4 sentences), not a one-liner. Draw it from that
-  page's own already-drafted content — summarize or pull out a genuinely
-  specific detail (a local angle, a concrete symptom/scenario, a real
-  differentiator) rather than writing a generic teaser from scratch. Don't
-  duplicate a large passage verbatim; this is a distinct, shorter
-  restatement, not a copy-paste. Check `/ledgers/content-ledger.md` first,
-  same as drafting any other page, so the card's local details/angle don't
-  collide with what's already logged for that destination page or any
-  other page.
-- **An image**, reusing that destination page's own existing hero/LCP
-  image (same file, referenced again — don't generate a new one for the
-  card). Lazy-load it on the homepage even though it's the LCP image on
-  its own page, since it isn't the homepage's LCP image.
-- The card's heading link text is still real anchor text, subject to the
-  same sitewide-uniqueness rule as any other in-body link — check
-  `/ledgers/anchor-ledger.md` before finalizing it.
+**Homepage-linked priority sections, specifically**: these are the site's
+premium real estate — the homepage-linked picks from Phase 3's priority
+tiers — and each one gets a full-page-width section of its own, stacked
+vertically down the homepage, not a card sitting side-by-side with others
+in a grid. Think of it as a mini version of that page's own landing-page
+section, not a teaser. For each priority pick:
+1. **An H2 heading** naming that category/service.
+2. **2–3 real paragraphs**, not a one- or two-sentence blurb. Draw them
+   from that page's own already-drafted content — either condense its key
+   points, or pull out and expand on one strong, specific local angle from
+   it (whichever reads better; this is a per-section judgment call, not a
+   fixed formula). Don't duplicate a large passage verbatim — this is a
+   distinct, shorter restatement in its own words, not a copy-paste. Check
+   `/ledgers/content-ledger.md` first, same as drafting any other page, so
+   the section's local details/angle don't collide with what's already
+   logged for that destination page or any other page.
+3. **A real image**, reusing that destination page's own existing hero/LCP
+   image (same file, referenced again — don't generate a new one).
+   Lazy-load it on the homepage even though it's the non-lazy LCP image on
+   its own page, since it isn't the homepage's own LCP image. Lay the
+   section out as image + text side by side (alternating which side the
+   image sits on from one section to the next reads better over several
+   stacked sections than repeating the same layout six times), stacking to
+   a single column on mobile.
+4. **A "Learn More" CTA** linking to the destination page, styled/treated
+   as a button. It repeats identically across every section by design (a
+   UI convention, like the repeated "Request a Free Estimate" CTAs) —
+   give it the same `class="btn ..."` treatment those use so
+   `scripts/validate.js` treats it as a structural element exempt from the
+   anchor-uniqueness check, not literal SEO anchor text. Keep at least one
+   genuine descriptive link woven into the paragraph prose itself too
+   (real anchor text, checked against `/ledgers/anchor-ledger.md` same as
+   any other in-body link) — the CTA button isn't a substitute for that,
+   same "links live in body content" principle as every other page.
 
 ## Approved outbound source domains
 **Trade-specific (prefer these first when one fits the page's topic):**

@@ -258,17 +258,36 @@ section { padding: var(--space-6) 0; }
 }
 .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
 .card h3 { margin-bottom: var(--space-1); }
-.card-image {
-  margin: calc(var(--space-3) * -1) calc(var(--space-3) * -1) var(--space-2);
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  overflow: hidden;
+/* Homepage premium feature sections: full-width, alternating image/text,
+   one per priority category/service — a mini landing-page block, not a
+   card. */
+.feature-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  align-items: center;
 }
-.card-image img {
+.feature-split.feature-reverse .feature-image { order: 2; }
+.feature-split.feature-reverse .feature-text { order: 1; }
+.feature-image img {
   width: 100%;
   height: auto;
   aspect-ratio: 1200 / 630;
   object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
   display: block;
+}
+.feature-text h2 { margin-bottom: var(--space-2); }
+.feature-text .btn { margin-top: var(--space-1); }
+@media (max-width: 720px) {
+  .feature-split, .feature-split.feature-reverse {
+    grid-template-columns: 1fr;
+  }
+  .feature-split.feature-reverse .feature-image,
+  .feature-split.feature-reverse .feature-text {
+    order: unset;
+  }
 }
 /* Services hub card grids: "Learn More" repeats sitewide as a UI
    convention (like the CTA buttons it borrows its btn/anchor-uniqueness
