@@ -258,6 +258,40 @@ section { padding: var(--space-6) 0; }
 }
 .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
 .card h3 { margin-bottom: var(--space-1); }
+.card-image {
+  margin: calc(var(--space-3) * -1) calc(var(--space-3) * -1) var(--space-2);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  overflow: hidden;
+}
+.card-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1200 / 630;
+  object-fit: cover;
+  display: block;
+}
+/* Services hub card grids: "Learn More" repeats sitewide as a UI
+   convention (like the CTA buttons it borrows its btn/anchor-uniqueness
+   exemption from), styled here as a lightweight text link instead of a
+   filled button so a page with many cards doesn't read as a wall of
+   buttons. */
+.card-more-link.btn {
+  display: inline-block;
+  margin-top: var(--space-1);
+  padding: 0;
+  background: none;
+  color: var(--color-primary);
+  border: none;
+  box-shadow: none;
+  font-weight: 600;
+  text-decoration: underline;
+}
+.card-more-link.btn:hover {
+  background: none;
+  color: var(--color-primary-dark);
+  transform: none;
+  box-shadow: none;
+}
 
 /* FAQ */
 #faq .faq-item {

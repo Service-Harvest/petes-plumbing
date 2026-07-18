@@ -24,59 +24,59 @@
 | `/` | `/gas-line-repair-armonk-ny` | gas line repair and safety checks | Homepage priority-service card copy |
 | `/` | `/emergency-plumbing-repair-armonk-ny` | 24/7 emergency plumbing response | Homepage priority-service card copy |
 | `/services` | `/` | full range of plumbing services | Hub intro / plumbing section |
-| `/services` | `/emergency-plumbing-repair-armonk-ny` | 24/7 emergency plumbing repair | Hub plumbing section |
-| `/services` | `/water-heater-installation-armonk-ny` | new water heater installation | Hub plumbing section |
-| `/services` | `/leak-detection-armonk-ny` | hidden leak detection | Hub plumbing section |
-| `/services` | `/drainage-service-armonk-ny` | drainage service overview | Hub drainage section |
-| `/services` | `/drain-cleaning-armonk-ny` | routine drain cleaning | Hub drainage section |
-| `/services` | `/sewer-line-repair-armonk-ny` | sewer line repair and diagnosis | Hub drainage section |
-| `/services` | `/hydro-jetting-armonk-ny` | hydro jetting for tough clogs | Hub drainage section |
-| `/services` | `/clogged-drain-repair-armonk-ny` | tracking down a recurring clog's real cause | Hub drainage section |
-| `/services` | `/drain-snaking-rooter-service-armonk-ny` | a rooter service for stubborn blockages | Hub drainage section |
-| `/services` | `/sewer-drain-camera-inspection-armonk-ny` | camera inspection of your sewer and drain lines | Hub drainage section |
-| `/services` | `/grease-trap-cleaning-armonk-ny` | grease trap cleaning and maintenance | Hub drainage section |
-| `/services` | `/burst-pipe-repair-armonk-ny` | stopping a burst pipe fast | Hub plumbing / emergency-leak-pipe subgroup |
-| `/services` | `/frozen-pipe-repair-armonk-ny` | thawing a pipe frozen by a cold snap | Hub plumbing / emergency-leak-pipe subgroup |
-| `/services` | `/slab-leak-repair-armonk-ny` | repairing a leak hidden under your foundation | Hub plumbing / emergency-leak-pipe subgroup |
-| `/services` | `/water-leak-sensor-installation-armonk-ny` | installing sensors that flag a leak early | Hub plumbing / emergency-leak-pipe subgroup |
-| `/services` | `/pipe-repair-armonk-ny` | patching a section of damaged pipe | Hub plumbing / emergency-leak-pipe subgroup |
-| `/services` | `/pipe-replacement-armonk-ny` | swapping out pipe that keeps failing | Hub plumbing / emergency-leak-pipe subgroup |
-| `/services` | `/water-line-replacement-armonk-ny` | replacing the line that feeds your home | Hub plumbing / emergency-leak-pipe subgroup |
-| `/services` | `/water-main-repair-armonk-ny` | fixing a break in your water main | Hub plumbing / emergency-leak-pipe subgroup |
-| `/services` | `/low-water-pressure-repair-armonk-ny` | low water pressure diagnosis and repair | Hub plumbing / emergency-leak-pipe subgroup |
-| `/services` | `/tankless-water-heater-installation-armonk-ny` | going tankless for on-demand hot water | Hub plumbing / water-heating subgroup |
-| `/services` | `/hot-water-system-repair-armonk-ny` | repairing a hot water system that's underperforming | Hub plumbing / water-heating subgroup |
-| `/services` | `/boiler-installation-armonk-ny` | choosing and installing a new boiler | Hub plumbing / water-heating subgroup |
-| `/services` | `/water-softener-installation-armonk-ny` | softening hard water before it damages pipes | Hub plumbing / water-heating subgroup |
-| `/services` | `/water-filtration-system-installation-armonk-ny` | filtering water for cleaner taps | Hub plumbing / water-heating subgroup |
-| `/services` | `/toilet-installation-armonk-ny` | setting up a new toilet | Hub plumbing / fixture-appliance subgroup |
-| `/services` | `/toilet-repair-armonk-ny` | fixing a running or clogged toilet | Hub plumbing / fixture-appliance subgroup |
-| `/services` | `/faucet-installation-armonk-ny` | putting in a new kitchen or bath faucet | Hub plumbing / fixture-appliance subgroup |
-| `/services` | `/outdoor-faucet-repair-armonk-ny` | repairing a leaking outdoor spigot | Hub plumbing / fixture-appliance subgroup |
-| `/services` | `/sink-installation-armonk-ny` | installing a new sink | Hub plumbing / fixture-appliance subgroup |
-| `/services` | `/bathtub-installation-armonk-ny` | setting a new bathtub in place | Hub plumbing / fixture-appliance subgroup |
-| `/services` | `/shower-installation-armonk-ny` | building out a new shower | Hub plumbing / fixture-appliance subgroup |
-| `/services` | `/shower-valve-replacement-armonk-ny` | replacing a shower valve that won't hold temperature | Hub plumbing / fixture-appliance subgroup |
-| `/services` | `/fixture-replacement-armonk-ny` | swapping in updated plumbing fixtures | Hub plumbing / fixture-appliance subgroup |
-| `/services` | `/garbage-disposal-repair-armonk-ny` | fixing a jammed garbage disposal | Hub plumbing / fixture-appliance subgroup |
-| `/services` | `/appliance-hook-up-armonk-ny` | hooking up a new dishwasher or washing machine | Hub plumbing / fixture-appliance subgroup |
-| `/services` | `/urinal-installation-armonk-ny` | installing a urinal for a commercial restroom | Hub plumbing / fixture-appliance subgroup |
-| `/services` | `/sump-pump-installation-armonk-ny` | sizing and installing a sump pump | Hub plumbing / specialty-maintenance subgroup |
-| `/services` | `/rainwater-tank-installation-armonk-ny` | setting up a rainwater collection tank | Hub plumbing / specialty-maintenance subgroup |
-| `/services` | `/laundry-room-plumbing-armonk-ny` | running supply and drain lines for a laundry room | Hub plumbing / specialty-maintenance subgroup |
-| `/services` | `/backflow-testing-armonk-ny` | annual backflow testing and documentation | Hub plumbing / specialty-maintenance subgroup |
-| `/services` | `/plumbing-inspection-armonk-ny` | a full plumbing inspection before you buy or sell | Hub plumbing / specialty-maintenance subgroup |
-| `/services` | `/plumbing-maintenance-armonk-ny` | a routine plumbing maintenance visit | Hub plumbing / specialty-maintenance subgroup |
-| `/services` | `/commercial-plumbing-services-armonk-ny` | plumbing support for small commercial properties | Hub plumbing / specialty-maintenance subgroup |
-| `/services` | `/repiping-armonk-ny` | repiping a home with recurring pipe failures | Hub plumbing / specialty-maintenance subgroup |
-| `/services` | `/gasfitter-armonk-ny` | gasfitter services overview | Hub gasfitter section |
-| `/services` | `/gas-line-repair-armonk-ny` | gas line leak repair | Hub gasfitter section |
-| `/services` | `/gas-water-heater-installation-armonk-ny` | gas water heater installation | Hub gasfitter section |
-| `/services` | `/septic-services-armonk-ny` | septic-connected plumbing support | Hub septic section |
-| `/services` | `/septic-tank-service-armonk-ny` | septic tank service details | Hub septic section |
-| `/services` | `/bathroom-kitchen-remodeling-armonk-ny` | remodeling plumbing services | Hub remodeling section |
-| `/services` | `/bathroom-plumbing-remodeling-armonk-ny` | bathroom remodel plumbing work | Hub remodeling section |
-| `/services` | `/kitchen-plumbing-remodeling-armonk-ny` | kitchen remodel plumbing work | Hub remodeling section |
+| `/services` | `/drainage-service-armonk-ny` | drain and sewer service overview | Hub drainage section framing sentence |
+| `/services` | `/drain-cleaning-armonk-ny` | Drain Cleaning | Hub Drainage Service card grid — card title link |
+| `/services` | `/sewer-line-repair-armonk-ny` | Sewer Line Repair | Hub Drainage Service card grid — card title link |
+| `/services` | `/hydro-jetting-armonk-ny` | Hydro Jetting | Hub Drainage Service card grid — card title link |
+| `/services` | `/clogged-drain-repair-armonk-ny` | Clogged Drain Repair | Hub Drainage Service card grid — card title link |
+| `/services` | `/drain-snaking-rooter-service-armonk-ny` | Drain Snaking &amp; Rooter Service | Hub Drainage Service card grid — card title link |
+| `/services` | `/sewer-drain-camera-inspection-armonk-ny` | Sewer &amp; Drain Camera Inspection | Hub Drainage Service card grid — card title link |
+| `/services` | `/grease-trap-cleaning-armonk-ny` | Grease Trap Cleaning | Hub Drainage Service card grid — card title link |
+| `/services` | `/gasfitter-armonk-ny` | licensed gasfitter services overview | Hub gasfitter section framing sentence |
+| `/services` | `/gas-line-repair-armonk-ny` | Gas Line Repair | Hub Gasfitter card grid — card title link |
+| `/services` | `/gas-water-heater-installation-armonk-ny` | Gas Water Heater Installation | Hub Gasfitter card grid — card title link |
+| `/services` | `/septic-services-armonk-ny` | septic-connected plumbing overview | Hub septic section framing sentence |
+| `/services` | `/septic-tank-service-armonk-ny` | Septic Tank Service | Hub Septic Services card grid — card title link |
+| `/services` | `/bathroom-kitchen-remodeling-armonk-ny` | remodeling plumbing overview | Hub remodeling section framing sentence |
+| `/services` | `/bathroom-plumbing-remodeling-armonk-ny` | Bathroom Plumbing Remodeling | Hub Bathroom & Kitchen Remodeling card grid — card title link |
+| `/services` | `/kitchen-plumbing-remodeling-armonk-ny` | Kitchen Plumbing Remodeling | Hub Bathroom & Kitchen Remodeling card grid — card title link |
+| `/services` | `/emergency-plumbing-repair-armonk-ny` | Emergency Plumbing Repair | Hub plumbing / emergency-leak-pipe subgroup card grid — card title link |
+| `/services` | `/burst-pipe-repair-armonk-ny` | Burst Pipe Repair | Hub plumbing / emergency-leak-pipe subgroup card grid — card title link |
+| `/services` | `/frozen-pipe-repair-armonk-ny` | Frozen Pipe Repair | Hub plumbing / emergency-leak-pipe subgroup card grid — card title link |
+| `/services` | `/slab-leak-repair-armonk-ny` | Slab Leak Repair | Hub plumbing / emergency-leak-pipe subgroup card grid — card title link |
+| `/services` | `/leak-detection-armonk-ny` | Leak Detection | Hub plumbing / emergency-leak-pipe subgroup card grid — card title link |
+| `/services` | `/water-leak-sensor-installation-armonk-ny` | Water Leak Sensor Installation | Hub plumbing / emergency-leak-pipe subgroup card grid — card title link |
+| `/services` | `/pipe-repair-armonk-ny` | Pipe Repair | Hub plumbing / emergency-leak-pipe subgroup card grid — card title link |
+| `/services` | `/pipe-replacement-armonk-ny` | Pipe Replacement | Hub plumbing / emergency-leak-pipe subgroup card grid — card title link |
+| `/services` | `/water-line-replacement-armonk-ny` | Water Line Replacement | Hub plumbing / emergency-leak-pipe subgroup card grid — card title link |
+| `/services` | `/water-main-repair-armonk-ny` | Water Main Repair | Hub plumbing / emergency-leak-pipe subgroup card grid — card title link |
+| `/services` | `/low-water-pressure-repair-armonk-ny` | Low Water Pressure Repair | Hub plumbing / emergency-leak-pipe subgroup card grid — card title link |
+| `/services` | `/water-heater-installation-armonk-ny` | Water Heater Installation | Hub plumbing / water-heating subgroup card grid — card title link |
+| `/services` | `/tankless-water-heater-installation-armonk-ny` | Tankless Water Heater Installation | Hub plumbing / water-heating subgroup card grid — card title link |
+| `/services` | `/hot-water-system-repair-armonk-ny` | Hot Water System Repair | Hub plumbing / water-heating subgroup card grid — card title link |
+| `/services` | `/boiler-installation-armonk-ny` | Boiler Installation | Hub plumbing / water-heating subgroup card grid — card title link |
+| `/services` | `/water-softener-installation-armonk-ny` | Water Softener Installation | Hub plumbing / water-heating subgroup card grid — card title link |
+| `/services` | `/water-filtration-system-installation-armonk-ny` | Water Filtration System Installation | Hub plumbing / water-heating subgroup card grid — card title link |
+| `/services` | `/toilet-installation-armonk-ny` | Toilet Installation | Hub plumbing / fixture-appliance subgroup card grid — card title link |
+| `/services` | `/toilet-repair-armonk-ny` | Toilet Repair | Hub plumbing / fixture-appliance subgroup card grid — card title link |
+| `/services` | `/faucet-installation-armonk-ny` | Faucet Installation | Hub plumbing / fixture-appliance subgroup card grid — card title link |
+| `/services` | `/outdoor-faucet-repair-armonk-ny` | Outdoor Faucet Repair | Hub plumbing / fixture-appliance subgroup card grid — card title link |
+| `/services` | `/sink-installation-armonk-ny` | Sink Installation | Hub plumbing / fixture-appliance subgroup card grid — card title link |
+| `/services` | `/bathtub-installation-armonk-ny` | Bathtub Installation | Hub plumbing / fixture-appliance subgroup card grid — card title link |
+| `/services` | `/shower-installation-armonk-ny` | Shower Installation | Hub plumbing / fixture-appliance subgroup card grid — card title link |
+| `/services` | `/shower-valve-replacement-armonk-ny` | Shower Valve Replacement | Hub plumbing / fixture-appliance subgroup card grid — card title link |
+| `/services` | `/fixture-replacement-armonk-ny` | Fixture Replacement | Hub plumbing / fixture-appliance subgroup card grid — card title link |
+| `/services` | `/garbage-disposal-repair-armonk-ny` | Garbage Disposal Repair | Hub plumbing / fixture-appliance subgroup card grid — card title link |
+| `/services` | `/appliance-hook-up-armonk-ny` | Appliance Hook-Up | Hub plumbing / fixture-appliance subgroup card grid — card title link |
+| `/services` | `/urinal-installation-armonk-ny` | Urinal Installation | Hub plumbing / fixture-appliance subgroup card grid — card title link |
+| `/services` | `/sump-pump-installation-armonk-ny` | Sump Pump Installation | Hub plumbing / specialty-maintenance subgroup card grid — card title link |
+| `/services` | `/rainwater-tank-installation-armonk-ny` | Rainwater Tank Installation | Hub plumbing / specialty-maintenance subgroup card grid — card title link |
+| `/services` | `/laundry-room-plumbing-armonk-ny` | Laundry Room Plumbing | Hub plumbing / specialty-maintenance subgroup card grid — card title link |
+| `/services` | `/backflow-testing-armonk-ny` | Backflow Testing | Hub plumbing / specialty-maintenance subgroup card grid — card title link |
+| `/services` | `/plumbing-inspection-armonk-ny` | Plumbing Inspection | Hub plumbing / specialty-maintenance subgroup card grid — card title link |
+| `/services` | `/plumbing-maintenance-armonk-ny` | Plumbing Maintenance | Hub plumbing / specialty-maintenance subgroup card grid — card title link |
+| `/services` | `/commercial-plumbing-services-armonk-ny` | Commercial Plumbing Services | Hub plumbing / specialty-maintenance subgroup card grid — card title link |
+| `/services` | `/repiping-armonk-ny` | Repiping | Hub plumbing / specialty-maintenance subgroup card grid — card title link |
 | `/drainage-service-armonk-ny` | `/drain-cleaning-armonk-ny` | clearing a slow or clogged drain | Category page body |
 | `/drainage-service-armonk-ny` | `/clogged-drain-repair-armonk-ny` | fixing a recurring clogged drain | Category page body |
 | `/drainage-service-armonk-ny` | `/drain-snaking-rooter-service-armonk-ny` | drain snaking for stubborn blockages | Category page body |

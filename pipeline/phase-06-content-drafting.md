@@ -66,6 +66,27 @@ cards, local-service section, process section, trust/credentials section,
 GBP embed placeholder, 6–8 FAQs (same `<section id="faq">` wrapper
 convention as above), final CTA.
 
+**Homepage-linked service/category cards, specifically**: these are the
+site's premium real estate — the homepage-linked picks from Phase 3's
+priority tiers — and each one needs to read like a genuine preview of its
+destination page, not a link with a caption. For each card:
+- **A real paragraph** (2–4 sentences), not a one-liner. Draw it from that
+  page's own already-drafted content — summarize or pull out a genuinely
+  specific detail (a local angle, a concrete symptom/scenario, a real
+  differentiator) rather than writing a generic teaser from scratch. Don't
+  duplicate a large passage verbatim; this is a distinct, shorter
+  restatement, not a copy-paste. Check `/ledgers/content-ledger.md` first,
+  same as drafting any other page, so the card's local details/angle don't
+  collide with what's already logged for that destination page or any
+  other page.
+- **An image**, reusing that destination page's own existing hero/LCP
+  image (same file, referenced again — don't generate a new one for the
+  card). Lazy-load it on the homepage even though it's the LCP image on
+  its own page, since it isn't the homepage's LCP image.
+- The card's heading link text is still real anchor text, subject to the
+  same sitewide-uniqueness rule as any other in-body link — check
+  `/ledgers/anchor-ledger.md` before finalizing it.
+
 ## Approved outbound source domains
 **Trade-specific (prefer these first when one fits the page's topic):**
 iaei.org (electrical), nachi.org (home inspection/general trades), nate.org
@@ -113,41 +134,63 @@ Phase 3 requires it and Phase 9 schemas it — this is that definition:
 1. H1 (e.g. "Our Services" — not keyword-stuffed).
 2. A brief intro paragraph (2–4 sentences) explaining the range of services
    in plain language.
-3. One short section per category, priority/homepage-linked categories
-   first: a sentence or two of real body copy introducing the category,
-   with in-body contextual links to that category's page and to 2–4 of its
-   most relevant service pages woven into the prose — per the anchor ledger
-   rules, same as every other page. A visual card/grid layer can sit on top
-   for scannability, but it doesn't substitute for the body-copy links; this
-   page is not exempt from the "links live in body content" rule just
-   because it's a hub.
+3. **Hub-only exception to the in-body-prose-link rule.** Every other page
+   on the site (including every category page) links to its related pages
+   through contextual sentences — real prose that happens to contain a
+   link. The Services hub is the one deliberate exception to that pattern,
+   because its actual job is scannable navigation across the entire
+   architecture, not content: a hub page written as dense contextual prose
+   for 50+ destination pages reads as a wall of text nobody scans. Instead:
+   one short category framing sentence or two (can include an in-line link
+   to that category's own overview page, same as any other in-body link),
+   followed by a **card grid** of that category's nested services — one
+   card per page, each with a title (the page's own service name, used as
+   the card's link/anchor text), a short real description (its own meta
+   description is a good source — don't invent new copy), and a "Learn
+   More" link to the page.
+   - **This exception applies to this one page only.** Every other page on
+     the site — including the 4 category overview pages themselves — keeps
+     the existing full in-body-contextual-link requirement unchanged. Do
+     not use a card-grid-instead-of-prose pattern anywhere else just
+     because it's convenient; the hub is structurally different (a
+     directory of the whole site) from every other page (content about one
+     topic).
+   - **This is not a return to a bare, sparse link wall.** The card grid
+     still needs full coverage of every page per point 4 below — a card
+     grid with only 2–4 sample cards per category is the same underlying
+     problem as a prose paragraph with only 2–4 sample links, just in a
+     different visual wrapper.
+   - Each card's title link and the "Learn More" link both point to the
+     same destination. The title link is real, page-specific anchor text
+     (the service name) subject to the normal sitewide anchor-uniqueness
+     rule — check `/ledgers/anchor-ledger.md` same as any other link. The
+     "Learn More" link repeats identically across every card by design (a
+     UI convention, like the repeated "Request a Free Estimate" CTA
+     buttons) — give it the same `class="btn ..."` treatment those CTAs
+     use so `scripts/validate.js` treats it as a structural element exempt
+     from the anchor-uniqueness check, not literal SEO anchor text.
 4. **Full coverage, no exceptions**: every page in the approved architecture
    — every category page and every service page, including any page that
    sits under a catch-all bucket rather than a real category (e.g. a
    "Plumber — general service pages, no dedicated category" grouping) —
-   must get at least one in-body contextual link from this page. "2–4 most
-   relevant service pages" (point 3) describes how many links go in a
-   *category's* section; it is not a license to sample a handful from a
-   larger bucket and leave the rest unlinked from the hub. A future
-   `scripts/validate.js` run enforces this as a hard fail (see Phase 12),
-   so treat it as non-negotiable, not a nice-to-have.
-5. **Large flat groupings need sub-structure, not a link wall.** If a
-   catch-all bucket (no dedicated category page) is large enough that
-   listing every page in one paragraph would be unreadable — as a rough
-   guide, more than ~8–10 pages — split it into its own short section (an
-   H2, e.g. "Plumbing") containing multiple readable sub-groupings (H3s) by
-   genuine service type, each with its own sentence or two of real prose
-   and in-body links to every page in that sub-group. Pick sub-groupings
+   must get at least one in-body link from this page (a card counts as
+   in-body; nav/footer still don't). This is not a license to sample a
+   handful of cards from a larger bucket and leave the rest unlinked from
+   the hub. `scripts/validate.js` enforces this as a hard fail (see Phase
+   12), so treat it as non-negotiable, not a nice-to-have.
+5. **Large flat groupings need sub-structure, not a link wall (or card
+   wall).** If a catch-all bucket (no dedicated category page) is large
+   enough that one undifferentiated card grid would be unreadable — as a
+   rough guide, more than ~8–10 pages — split it into its own short section
+   (an H2, e.g. "Plumbing") containing multiple readable sub-groupings
+   (H3s) by genuine service type, each with its own short framing sentence
+   and its own card grid for just that sub-group's pages. Pick sub-groupings
    that reflect how a homeowner actually thinks about the problem, not an
    arbitrary alphabetical split — e.g. for a general plumbing bucket:
    emergency/leak/pipe repair, water heating/softening/filtration,
    fixture/appliance/bathroom-kitchen installs, and
    specialty/maintenance/commercial work is one reasonable split; a
    different client's uncategorized bucket may naturally split differently.
-   Every link still needs unique anchor text sitewide, same as any other
-   page — don't reuse a phrase already logged in `anchor-ledger.md` (this
-   is the situation most likely to produce a large batch of new links at
-   once, so double-check against the ledger as you draft, not after).
 6. One CTA.
 7. SEO elements: title tag, meta description, H1 — same as other pages.
 
