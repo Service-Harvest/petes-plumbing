@@ -47,7 +47,7 @@
 | `/appliance-hook-up-armonk-ny` | — | New washer/dishwasher/fridge water line hookup | outbound: consumerreports.org |
 | `/urinal-installation-armonk-ny` | Small commercial/office properties | Restroom updates to code | outbound: epa.gov/watersense |
 | `/rainwater-tank-installation-armonk-ny` | Larger Westchester lots | Reducing outdoor water use for gardens | outbound: familyhandyman.com |
-| `/laundry-room-plumbing-armonk-ny` | Basement-finishing projects | Relocating a laundry room | outbound: hgtv.com |
+| `/laundry-room-plumbing-armonk-ny` | Older Armonk homes never plumbed for a convenient laundry hookup | Adding new supply/drain lines, not just relocating existing ones (revised to stop overlapping sump-pump-installation's "finished basements" angle — see build-report Post-launch fix notes) | outbound: hgtv.com |
 | `/water-leak-sensor-installation-armonk-ny` | Frequent travelers/second-home owners | Early leak warning | outbound: ul.com |
 | `/plumbing-maintenance-armonk-ny` | — | Fall seasonal checkup before winter | outbound: thisoldhouse.com |
 | `/backflow-testing-armonk-ny` | Larger properties with irrigation | Required annual backflow testing | outbound: phcc.org |

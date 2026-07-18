@@ -397,6 +397,24 @@ for (const file of files) {
     }
   }
 
+  // --- Duplicated word across an anchor boundary (e.g. "The <a>the EPA's
+  // guidance...</a>") — a recurring authoring artifact from splicing a
+  // lead-in sentence with anchor text that already starts with the same
+  // word (an article, "guidance", etc.), producing a doubled-word typo
+  // right at the link boundary. Case-insensitive; only flags a real
+  // adjacent duplicate, not legitimate doubled words elsewhere in prose. ---
+  const anchorBoundaryMatches = extractAll(
+    bodyHtml,
+    "([A-Za-z']+)[\\s]*<a\\s+[^>]*href=[\"']([^\"']+)[\"'][^>]*>\\s*([A-Za-z']+)"
+  );
+  for (const m of anchorBoundaryMatches) {
+    const before = m[1].toLowerCase();
+    const firstAnchorWord = m[3].toLowerCase();
+    if (before === firstAnchorWord) {
+      fail(`Duplicated word "${m[1]} ${m[3]}" split across a link boundary on ${url} (e.g. "The <a>the EPA's...</a>") — reword so the lead-in text and the anchor text don't repeat the same word.`);
+    }
+  }
+
   // --- Body-copy anchors (for orphan / required-link / duplicate-anchor checks) ---
   const bodyAnchors = extractAnchors(bodyHtml);
   // Keyed by normalized URL (no trailing slash) so lookups from ledger rows

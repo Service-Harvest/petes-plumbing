@@ -28,13 +28,22 @@ DataforSEO (research) and Gemini (image generation), hosted on GitHub Pages.
 - `CLAUDE.md`
 - `/pipeline/*` (all phase files)
 - `/scripts/validate.js`
+- `/scripts/generate-image.js` (Phase 7's Gemini image-generation helper)
 - `/.github/workflows/deploy.yml` (validates then deploys `/site/` on push)
-- Shared header/nav/footer reference markup in `/snippets/` (see Phase 4)
 
 **Per-client (created fresh each build):**
 - `/intake/intake-completed.md`
 - `/ledgers/*` (architecture, anchor ledger, content ledger, build report)
 - `/site/*` (the actual pages — plain final HTML, no build step)
+- `/snippets/*` — Phase 4 Task 1 generates this fresh for every client,
+  populated with that specific client's business name, phone number, nav
+  links, and footer content. It does not ship pre-populated in this
+  template (there is no `/snippets/` directory here) and a new client's
+  copy should never reuse another client's `/snippets/` content. What *is*
+  reusable and constant across every client is the underlying markup
+  **convention** — the relative-path (`{{ROOT}}`) rule (Task 2), which
+  elements must be literal `<nav>`/`<footer>` tags, etc. — which lives in
+  `phase-04-repo-scaffold.md` itself, not in a shipped file.
 
 ## Prerequisites
 - [GitHub CLI](https://cli.github.com/) (`gh`), authenticated, for repo
@@ -44,15 +53,29 @@ DataforSEO (research) and Gemini (image generation), hosted on GitHub Pages.
   runs it again in CI, but local Node is what lets Claude Code catch a
   failure before ever pushing.
 
-## Open items to resolve before first real client run
+## Environment setup checklist (per machine/session, not per client)
 
-- **DataforSEO**: account/API key not yet set up. Until connected, Phase 2
-  and Phase 5 fall back to web search and label findings as
-  "estimated — not DataforSEO-verified." Set this up once, store the key as
-  an environment variable, and every future client build benefits
-  automatically.
-- **Gemini API**: confirm key is stored as an environment variable / repo
-  secret before Phase 7 runs on a real client build.
-- **GitHub Pages custom domain**: DNS changes for each client's domain happen
-  outside this repo, at the domain registrar, once Phase 13 reports what's
-  needed.
+A full build has now been run successfully through this template (a mock
+client, end to end, Phase 0 through Phase 13 plus several rounds of
+post-launch fixes), so these are no longer unproven — they're just the
+one-time environment setup every new session/machine needs before Phase 2
+and Phase 7 can do real work instead of falling back to estimates:
+
+- **DataforSEO**: needs `DATAFORSEO_USERNAME`/`DATAFORSEO_PASSWORD` set as
+  environment variables reachable by the DataforSEO MCP server. Without
+  them, Phase 2/Phase 5 fall back to web search and must label every
+  finding "estimated — not DataforSEO-verified" rather than silently
+  proceeding as if it were verified data.
+- **Gemini API**: needs `GEMINI_API_KEY` set as an environment variable
+  before Phase 7 runs, or Phase 4a's favicon and Phase 7's images fall back
+  to placeholders (SVG mark, SVG graphics) instead of real generated
+  assets — flag this in the Phase 13 report if it happens, don't silently
+  ship placeholders as final.
+- **GitHub Pages custom domain**: DNS changes for each client's domain
+  happen outside this repo, at the domain registrar, once Phase 13 reports
+  what's needed. Until DNS is verified, GitHub Pages serves the build at
+  its fallback `https://org.github.io/repo-name/` project-subpath URL —
+  this is normal and expected, and is exactly why Phase 4 Task 2's
+  relative-path convention exists (a root-absolute path 404s under that
+  fallback subpath, even though it works fine once the custom domain is
+  verified).

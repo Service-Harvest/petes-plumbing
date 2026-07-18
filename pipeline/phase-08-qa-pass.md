@@ -24,7 +24,19 @@ something fails.
 5. **Cross-page redundancy.** Check this page's local details/angles against
    `/ledgers/content-ledger.md`. If this page leans on an angle already used
    elsewhere on the site, revise it to find a genuinely different angle for
-   this specific page's topic — don't just reword the same point.
+   this specific page's topic — don't just reword the same point. Checking
+   this properly means comparing the actual underlying *premise* the page's
+   local-factors section builds on, not just whether the ledger's one-line
+   summary phrase for this page reads differently from another page's
+   summary phrase — two summary phrases can look distinct on paper
+   ("basement-finishing projects" vs. "finished basements, spring rain")
+   while the actual drafted paragraphs both open with the same core claim
+   ("finished basements are common in Westchester") applied to two
+   different services. A generically-true local fact (finished basements
+   are common; older homes have mixed pipe materials; winters are cold) is
+   a legitimate detail to draw on for more than one page, but each page
+   still needs its own distinct angle built from it — not the same opening
+   sentence/premise reused with the service name swapped out.
 6. **Competitor-redundancy check** (carried from Phase 5): confirm the page
    didn't end up leaning on the generic angle flagged as "what every
    competitor already says" for this topic.

@@ -61,10 +61,10 @@ earning its place, not by the target number alone — the reading-level and
 
 Homepage follows the same spirit but with its own structure: hero, why-choose-
 us (4 differentiators, drawn from the intake's unique selling points), reviews
-placeholder (no invented review data), homepage-linked service/category
-cards, local-service section, process section, trust/credentials section,
-GBP embed placeholder, 6–8 FAQs (same `<section id="faq">` wrapper
-convention as above), final CTA.
+placeholder (no invented review data), homepage-linked priority sections
+(full-width, not cards — see below), local-service section, process section,
+trust/credentials section, GBP embed placeholder, 6–8 FAQs (same
+`<section id="faq">` wrapper convention as above), final CTA.
 
 **Homepage-linked priority sections, specifically**: these are the site's
 premium real estate — the homepage-linked picks from Phase 3's priority
