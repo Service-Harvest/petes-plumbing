@@ -108,8 +108,35 @@ Phase 3 requires it and Phase 9 schemas it — this is that definition:
    for scannability, but it doesn't substitute for the body-copy links; this
    page is not exempt from the "links live in body content" rule just
    because it's a hub.
-4. One CTA.
-5. SEO elements: title tag, meta description, H1 — same as other pages.
+4. **Full coverage, no exceptions**: every page in the approved architecture
+   — every category page and every service page, including any page that
+   sits under a catch-all bucket rather than a real category (e.g. a
+   "Plumber — general service pages, no dedicated category" grouping) —
+   must get at least one in-body contextual link from this page. "2–4 most
+   relevant service pages" (point 3) describes how many links go in a
+   *category's* section; it is not a license to sample a handful from a
+   larger bucket and leave the rest unlinked from the hub. A future
+   `scripts/validate.js` run enforces this as a hard fail (see Phase 12),
+   so treat it as non-negotiable, not a nice-to-have.
+5. **Large flat groupings need sub-structure, not a link wall.** If a
+   catch-all bucket (no dedicated category page) is large enough that
+   listing every page in one paragraph would be unreadable — as a rough
+   guide, more than ~8–10 pages — split it into its own short section (an
+   H2, e.g. "Plumbing") containing multiple readable sub-groupings (H3s) by
+   genuine service type, each with its own sentence or two of real prose
+   and in-body links to every page in that sub-group. Pick sub-groupings
+   that reflect how a homeowner actually thinks about the problem, not an
+   arbitrary alphabetical split — e.g. for a general plumbing bucket:
+   emergency/leak/pipe repair, water heating/softening/filtration,
+   fixture/appliance/bathroom-kitchen installs, and
+   specialty/maintenance/commercial work is one reasonable split; a
+   different client's uncategorized bucket may naturally split differently.
+   Every link still needs unique anchor text sitewide, same as any other
+   page — don't reuse a phrase already logged in `anchor-ledger.md` (this
+   is the situation most likely to produce a large batch of new links at
+   once, so double-check against the ledger as you draft, not after).
+6. One CTA.
+7. SEO elements: title tag, meta description, H1 — same as other pages.
 
 ## Writing the actual page file
 Nothing before this point writes real HTML — this is where each page's file

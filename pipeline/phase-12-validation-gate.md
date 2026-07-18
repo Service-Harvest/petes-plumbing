@@ -45,6 +45,13 @@ the sitemap by the time this runs.
 - Any category/service page (any page other than `/`, `/services`, `/about`,
   `/contact`) missing an outbound link to a domain from
   `phase-06-content-drafting.md`'s approved list
+- **Services hub coverage**: any category/service page missing an in-body
+  link specifically *from* `/services` (not just reachable from somewhere
+  else on the site — the orphan-page check above only requires *some*
+  incoming body link from anywhere, which a sibling cross-link already
+  satisfies even if the hub itself never mentions the page; this check is
+  stricter and hub-specific, per `phase-06-content-drafting.md`'s Services
+  hub section)
 
 ## Warnings (non-blocking, reported but don't stop deploy)
 - Title tag outside ~50–60 characters

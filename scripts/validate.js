@@ -395,6 +395,27 @@ for (const url of allUrls) {
 }
 
 // ---------------------------------------------------------------------
+// Services-hub coverage check — every category/service page must have at
+// least one in-body link specifically FROM the Services hub page, not just
+// be reachable from somewhere sitewide (the orphan check above only
+// requires *some* incoming body link, which a sibling cross-link already
+// satisfies even if the hub itself never mentions the page). See
+// phase-06-content-drafting.md's Services hub section.
+// ---------------------------------------------------------------------
+const hubAnchors = bodyAnchorsByUrl.get("/services") || [];
+const hubLinkedTo = new Set();
+for (const { href } of hubAnchors) {
+  const resolved = resolveHref("/services", href);
+  if (resolved) hubLinkedTo.add(resolved);
+}
+for (const url of allUrls) {
+  if (LINKING_EXEMPT_PAGES.has(normalizeUrl(url))) continue;
+  if (!hubLinkedTo.has(normalizeUrl(url))) {
+    fail(`Services hub coverage — no in-body link from /services to ${url} (every category/service page needs a direct hub link, per phase-06-content-drafting.md's Services hub section — sitewide reachability from another page doesn't satisfy this).`);
+  }
+}
+
+// ---------------------------------------------------------------------
 // Broken internal link check (any location — nav/footer links matter too)
 // ---------------------------------------------------------------------
 const urlSet = new Set(allUrls.map(normalizeUrl));
