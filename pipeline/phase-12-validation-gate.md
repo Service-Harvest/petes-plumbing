@@ -29,9 +29,16 @@ the sitemap by the time this runs.
 - Missing JSON-LD schema on any page (hard fail, not a warning), and every
   schema block present validates as well-formed JSON-LD
 - Every URL in `sitemap.xml` corresponds to a real file in `/site/`, and
-  that file's canonical tag matches the sitemap URL exactly (true live
-  200-status is confirmed by the deploy workflow's own success/failure —
-  this check is the static-file approximation available before deploy)
+  that file's canonical tag is **byte-identical** to the sitemap `<loc>`
+  entry — not just normalized-equal (a `/page` canonical against a
+  `/page/` sitemap entry resolves to the same page but is still a real
+  mismatch this check catches) (true live 200-status is confirmed by the
+  deploy workflow's own success/failure — this check is the static-file
+  approximation available before deploy)
+- Missing favicon coverage on any page: the SVG icon, 32×32 and 16×16 PNG
+  fallbacks, 180×180 apple-touch-icon, and web app manifest `<link>` tags
+  (Phase 4a Task 2) must all be present, and every file they reference must
+  actually exist on disk
 
 ## Content / SEO checks (hard fail if any are true)
 - Any anchor text string used more than once sitewide (checked against
@@ -52,6 +59,10 @@ the sitemap by the time this runs.
   satisfies even if the hub itself never mentions the page; this check is
   stricter and hub-specific, per `phase-06-content-drafting.md`'s Services
   hub section)
+- **Structural consistency**: any category/service page without exactly 5
+  main H2 sections (excluding the table-of-contents heading and the FAQ
+  section's own heading), or without 5–6 visible FAQs — per Phase 6's
+  required page structure and FAQ cap
 
 ## Warnings (non-blocking, reported but don't stop deploy)
 - Title tag outside ~50–60 characters

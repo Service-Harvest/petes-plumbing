@@ -46,6 +46,19 @@ then all remaining category/service pages, then About/Contact.
 10. SEO elements: title tag, meta description, H1, H2s, internal links used,
     outbound link used.
 
+## Word count guidance (category/service pages)
+Target roughly **1500–2500 words** of real body copy per page — but only
+where there's genuine content/research depth to support that length. This
+is not a license to pad a thin page with filler, repeated points, or
+generic statements to hit a number: a page with real substance (specific
+local detail, a genuinely useful process explanation, a well-developed
+cost-factors section, distinct FAQs) can and should run toward the higher
+end, while a page that's naturally simpler (a narrow, low-complexity
+service with little to differentiate it) should stay shorter rather than
+be stretched to match. Judge length by whether every sentence is still
+earning its place, not by the target number alone — the reading-level and
+"one idea per paragraph" rules above still apply at any length.
+
 Homepage follows the same spirit but with its own structure: hero, why-choose-
 us (4 differentiators, drawn from the intake's unique selling points), reviews
 placeholder (no invented review data), homepage-linked service/category

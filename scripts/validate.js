@@ -67,9 +67,16 @@ function readFile(file) {
   return fs.readFileSync(file, "utf8");
 }
 
-function extractTag(html, tagRegex) {
+// groupIndex lets callers pick which capture group holds the actual value —
+// needed because an attribute-value regex that only captures inside a lazy
+// ["'](.*?)["'] class will treat a straight apostrophe inside a
+// double-quoted value (e.g. "what's") as the closing quote, silently
+// truncating the match. Callers extracting a quoted attribute value should
+// instead capture the quote character itself (group 1) and backreference it
+// (\1) for the actual closing quote, then pass groupIndex: 2.
+function extractTag(html, tagRegex, groupIndex = 1) {
   const m = html.match(tagRegex);
-  return m ? m[1].trim() : null;
+  return m ? m[groupIndex].trim() : null;
 }
 
 function extractAll(html, regex) {
@@ -245,6 +252,7 @@ const schemaTypesByUrl = new Map(); // url -> Set<string>
 const faqSectionByUrl = new Map(); // url -> boolean
 const bodyAnchorsByUrl = new Map(); // url -> [{href, text}] — body copy only
 const outboundAnchorsByUrl = new Map(); // url -> [{href, text}] — external links, any location
+const canonicalByUrl = new Map(); // url -> raw canonical href string, for the sitemap cross-check below
 
 for (const file of files) {
   const html = readFile(file);
@@ -272,7 +280,8 @@ for (const file of files) {
   // --- Meta description ---
   const metaDesc = extractTag(
     html,
-    /<meta\s+name=["']description["']\s+content=["'](.*?)["']/i
+    /<meta\s+name=["']description["']\s+content=(["'])(.*?)\1/i,
+    2
   );
   if (!metaDesc) {
     fail(`Missing meta description: ${url}`);
@@ -287,14 +296,45 @@ for (const file of files) {
   // --- Canonical tag ---
   const canonical = extractTag(
     html,
-    /<link\s+rel=["']canonical["']\s+href=["'](.*?)["']/i
+    /<link\s+rel=["']canonical["']\s+href=(["'])(.*?)\1/i,
+    2
   );
   if (!canonical) {
     fail(`Missing canonical tag: ${url}`);
-  } else if (domain) {
-    const expected = `https://${domain}${url}`;
-    if (normalizeUrl(canonical) !== normalizeUrl(expected)) {
-      fail(`Incorrect canonical tag on ${url}: found "${canonical}", expected "${expected}"`);
+  } else {
+    canonicalByUrl.set(url, canonical);
+    if (domain) {
+      const expected = `https://${domain}${url}`;
+      if (normalizeUrl(canonical) !== normalizeUrl(expected)) {
+        fail(`Incorrect canonical tag on ${url}: found "${canonical}", expected "${expected}"`);
+      }
+    }
+  }
+
+  // --- Favicon set (Phase 4a Task 2: SVG icon, 32x32 + 16x16 PNG fallback,
+  // 180x180 apple-touch-icon, manifest — every size/format, every page,
+  // and every referenced file must actually exist on disk) ---
+  const REQUIRED_FAVICON_LINKS = [
+    { rel: /rel="icon"\s+type="image\/svg\+xml"/, label: "SVG icon" },
+    { rel: /rel="icon"\s+type="image\/png"\s+sizes="32x32"/, label: "32x32 PNG icon" },
+    { rel: /rel="icon"\s+type="image\/png"\s+sizes="16x16"/, label: "16x16 PNG icon" },
+    { rel: /rel="apple-touch-icon"\s+sizes="180x180"/, label: "180x180 apple-touch-icon" },
+    { rel: /rel="manifest"/, label: "web app manifest" },
+  ];
+  for (const { rel, label } of REQUIRED_FAVICON_LINKS) {
+    const linkMatch = html.match(new RegExp(`<link\\s+[^>]*${rel.source}[^>]*>`, "i"));
+    if (!linkMatch) {
+      fail(`Missing ${label} <link> tag: ${url}`);
+      continue;
+    }
+    const hrefMatch = linkMatch[0].match(/href=(["'])(.*?)\1/i);
+    if (!hrefMatch) {
+      fail(`${label} <link> tag has no href: ${url}`);
+      continue;
+    }
+    const resolvedPath = path.join(path.dirname(file), hrefMatch[2]);
+    if (!fs.existsSync(resolvedPath)) {
+      fail(`${label} on ${url} references "${hrefMatch[2]}", which doesn't exist on disk`);
     }
   }
 
@@ -337,6 +377,25 @@ for (const file of files) {
 
   // --- FAQ section marker (Phase 6 convention: <section id="faq">) ---
   faqSectionByUrl.set(url, /<section[^>]*\bid=["']faq["']/i.test(html));
+
+  // --- H2 section count + FAQ count consistency (Phase 6's "5 main H2
+  // sections" and "5-6 FAQs" structure, category/service pages only) ---
+  if (!LINKING_EXEMPT_PAGES.has(normalizeUrl(url))) {
+    // Exclude the table-of-contents heading (some pages label it with an
+    // <h2>, others with a <p><strong>) and the FAQ section's own <h2> —
+    // neither counts as one of the "5 main H2 sections."
+    const withoutToc = html.replace(/<nav[^>]*\bclass=["'][^"']*\btoc\b[^"']*["'][^>]*>[\s\S]*?<\/nav>/i, "");
+    const withoutFaqSection = withoutToc.replace(/<section[^>]*\bid=["']faq["'][^>]*>[\s\S]*?<\/section>/i, "");
+    const mainH2Count = extractAll(withoutFaqSection, "<h2[^>]*>").length;
+    if (mainH2Count !== 5) {
+      fail(`Expected exactly 5 main H2 sections (Phase 6's required page structure), found ${mainH2Count}: ${url}`);
+    }
+
+    const faqItemCount = extractAll(html, '<div[^>]*\\bclass=["\']faq-item["\'][^>]*>').length;
+    if (faqItemCount < 5 || faqItemCount > 6) {
+      fail(`Expected 5-6 FAQs (Phase 6's FAQ cap), found ${faqItemCount}: ${url}`);
+    }
+  }
 
   // --- Body-copy anchors (for orphan / required-link / duplicate-anchor checks) ---
   const bodyAnchors = extractAnchors(bodyHtml);
@@ -529,6 +588,15 @@ if (sitemapUrls === null) {
     const path_ = normalizeUrl(locUrl.pathname);
     if (!urlSet.has(path_)) {
       fail(`sitemap.xml references "${loc}", which has no corresponding file in /site/`);
+      continue;
+    }
+    // Exact-string cross-check (not just normalized-equal) — sitemap.xml and
+    // every canonical tag must agree on trailing-slash convention, not just
+    // point at the same normalized page. See phase-11-sitemap-technical.md.
+    const pageUrl = allUrls.find((u) => normalizeUrl(u) === path_);
+    const canonical = pageUrl != null ? canonicalByUrl.get(pageUrl) : null;
+    if (canonical && canonical !== loc) {
+      fail(`sitemap.xml entry "${loc}" doesn't exactly match its page's canonical tag "${canonical}" (trailing-slash or other mismatch — these must be byte-identical, not just resolve to the same normalized page)`);
     }
   }
   // Every real page (except the custom 404) should be represented in the sitemap.
