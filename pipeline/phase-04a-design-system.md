@@ -17,6 +17,48 @@ Runs once per client, immediately after Phase 4, before Phase 5.
    minimum), typography (heading/body font pairing and a sizing scale),
    spacing/layout grid, and button/CTA/card/section styling used across
    every page template.
+   "Consistent and WCAG AA accessible" is the floor, not the target — it
+   produces a serviceable but generic result on its own. Build to this
+   quality bar by default, regardless of how much aesthetic direction the
+   intake provides:
+   - **Spacing**: don't stop at a cramped scale. Include a generous
+     top-tier spacing value (roughly 3.5–5.5rem, ideally `clamp()`-based so
+     it scales with viewport) for section vertical padding — flat 2–2.5rem
+     section padding reads as dated/cramped on a modern marketing site.
+   - **Container width**: ~1200–1320px for the structural container is a
+     reasonable modern default (vs. older ~1140px conventions), paired with
+     a `clamp()`-based side padding so it breathes on ultra-wide screens
+     without needing a second breakpoint. Keep long-form body copy narrower
+     than the full container (~65–75ch via `max-width` on `p`) for
+     readability, independent of how wide the container itself is.
+   - **Full-bleed section rhythm**: alternate section background colors
+     edge-to-edge (the `<section>` element itself, not just an inner
+     `.container`) rather than relying on a single flat, low-contrast
+     stripe color — this is what prevents large viewports from reading as
+     "boxed" with dead space on either side, more than the container-width
+     number itself does.
+   - **Typography pairing**: a single system-font stack (per the
+     render-blocking rule below) is correct and should stay — but
+     differentiate headings from body via weight (700–800), tighter
+     letter-spacing (roughly -0.01 to -0.02em) at larger sizes, and a
+     clearer size jump, rather than relying on color alone to distinguish
+     them.
+   - **Depth**: add subtle, low-opacity box-shadows (elevation tiers, e.g.
+     a small/medium/large scale) on cards, buttons, and hero/content
+     images, plus a modest hover micro-interaction (slight lift + shadow
+     increase on buttons/cards) using pure CSS `transition` — no JS. Wrap
+     any transform/transition hover treatment in a
+     `@media (prefers-reduced-motion: reduce)` override that disables it.
+   - **Icons**: simple inline SVG (e.g. via a CSS `mask`/`background`
+     data-URI, or literal inline `<svg>` markup) for small decorative
+     elements like trust-badge checkmarks are encouraged for visual
+     interest — keep them strictly decorative (CSS-injected or
+     `aria-hidden`, never given alt text or treated as content), so they
+     don't need a Layer 1 image-compliance pass.
+   - Re-verify WCAG AA contrast after applying weight/letter-spacing/depth
+     changes — those shouldn't change contrast ratios (contrast is a
+     function of color, not weight), but confirm rather than assume,
+     especially if a client's real brand colors are introduced later.
 3. Implement this as a single stylesheet at `/site/assets/css/main.css`,
    linked identically from every page's `<head>` (a plain `<link
    rel="stylesheet">` reference — no build step needed to share one static
