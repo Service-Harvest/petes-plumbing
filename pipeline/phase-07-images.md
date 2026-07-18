@@ -32,6 +32,23 @@ exclusively for client-provided real photos.
   paint) image, which should be preloaded instead
 - WebP format where practical, resized/compressed appropriately — do not
   ship an oversized source file
+- **Resize by cropping to fill the target box, never by stretching to it.**
+  Gemini returns its own native size (commonly a 1024×1024 square) regardless
+  of the aspect ratio implied by the prompt or requested dimensions — it does
+  not honor an arbitrary target width/height. A naive resize command that
+  forces the source directly to the target's exact width AND height (e.g.
+  `cwebp -resize <w> <h>` given both dimensions) performs a non-uniform
+  stretch, distorting the actual photo content (a circle becomes an ellipse,
+  a person's proportions warp) even though the resulting file's pixel
+  dimensions technically match what was requested. Instead: scale uniformly
+  so the image *covers* the target box (preserving aspect ratio: scale =
+  max(targetW/nativeW, targetH/nativeH)), then center-crop to the exact
+  target dimensions — the same effect as CSS `object-fit: cover`, baked into
+  the file itself (e.g. `sips -z <scaledH> <scaledW>` to uniformly scale,
+  then `sips -c <targetH> <targetW>` to center-crop, then `cwebp` for final
+  format/quality). If a reusable generation helper script exists in this
+  repo's `scripts/` folder, use it rather than re-deriving this by hand —
+  check there first before writing a new one.
 
 ## Gemini API usage notes
 - Model: `gemini-2.5-flash-image`, called via the `generateContent` endpoint.

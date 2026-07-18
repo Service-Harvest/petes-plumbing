@@ -370,5 +370,35 @@
           >
   </iframe>
   <script src="https://go.serviceharvest.com/js/form_embed.js"></script>
+  <script>
+  (function () {
+    var POPUP_ID = "popup-xHJhkUk8Wps0ag0Dokml";
+    var allowShow = false;
+    function popupEls() {
+      return [document.getElementById(POPUP_ID + "-wrapper"), document.getElementById(POPUP_ID + "-overlay")].filter(Boolean);
+    }
+    function hidePopup() {
+      if (allowShow) return;
+      popupEls().forEach(function (el) {
+        el.style.setProperty("display", "none", "important");
+      });
+    }
+    // The embed can auto-show its wrapper/overlay regardless of the
+    // data-trigger-type config above (confirmed by live testing) — suppress
+    // that immediately and keep watching, since it can render asynchronously.
+    var observer = new MutationObserver(hidePopup);
+    observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ["style"] });
+    hidePopup();
+    [50, 200, 500, 1000, 2000, 4000].forEach(function (ms) { setTimeout(hidePopup, ms); });
+
+    document.addEventListener("click", function (e) {
+      if (e.target.closest(".request-estimate-cta")) {
+        e.preventDefault();
+        allowShow = true;
+        popupEls().forEach(function (el) { el.style.removeProperty("display"); });
+      }
+    });
+  })();
+  </script>
 </body>
 </html>

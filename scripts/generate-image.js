@@ -87,10 +87,23 @@ fs.writeFileSync(pngPath, Buffer.from(imagePart.inlineData.data, "base64"));
 
 const webpPath = outPath + ".webp";
 try {
-  execSync(
-    `cwebp -quiet -q 82 -resize ${width} ${height} "${pngPath}" -o "${webpPath}"`,
-    { stdio: "inherit" }
-  );
+  // Gemini does not honor arbitrary target dimensions — it returns its own
+  // native size (e.g. a 1024x1024 square) regardless of the requested aspect
+  // ratio. `cwebp -resize W H` does a naive non-uniform stretch to exactly
+  // W x H, which distorts the actual photo content whenever the native
+  // aspect ratio differs from the target (it almost always does). Instead:
+  // uniformly scale to COVER the target box (preserving aspect ratio), then
+  // center-crop to the exact target size — the same effect as CSS
+  // `object-fit: cover`, but baked into the file itself.
+  const dims = execSync(`sips -g pixelWidth -g pixelHeight "${pngPath}"`, { encoding: "utf8" });
+  const nativeW = parseInt(dims.match(/pixelWidth:\s*(\d+)/)[1], 10);
+  const nativeH = parseInt(dims.match(/pixelHeight:\s*(\d+)/)[1], 10);
+  const scale = Math.max(width / nativeW, height / nativeH);
+  const resampleW = Math.round(nativeW * scale);
+  const resampleH = Math.round(nativeH * scale);
+  execSync(`sips -z ${resampleH} ${resampleW} "${pngPath}"`, { stdio: "ignore" });
+  execSync(`sips -c ${height} ${width} "${pngPath}"`, { stdio: "ignore" });
+  execSync(`cwebp -quiet -q 82 "${pngPath}" -o "${webpPath}"`, { stdio: "inherit" });
 } finally {
   fs.unlinkSync(pngPath);
 }
